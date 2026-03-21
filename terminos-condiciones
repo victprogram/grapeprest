@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Términos y Condiciones - GrapePrest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+            color: #333;
+            background: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1 {
+            color: #F80145;
+            border-bottom: 3px solid #F80145;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: clamp(22px, 6vw, 32px);
+        }
+
+        h2 {
+            color: #478935;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: clamp(18px, 5vw, 24px);
+        }
+
+        h3 {
+            color: #1976D2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: clamp(16px, 4vw, 20px);
+        }
+
+        h4 {
+            color: #555;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: clamp(14px, 3.5vw, 16px);
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+
+        .last-update {
+            background: #f0f0f0;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .critical {
+            background: #ffebee;
+            border-left: 4px solid #F80145;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .important {
+            background: #fff3cd;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .info {
+            background: #e3f2fd;
+            border-left: 4px solid #1976D2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .success {
+            background: #e8f5e9;
+            border-left: 4px solid #478935;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .contact-box {
+            background: #e8f5e9;
+            padding: 20px;
+            border-left: 4px solid #478935;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .legal {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        /* Optimización de tablas para móvil */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: clamp(11px, 3vw, 14px);
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table th {
+            background: #478935;
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background: white;
+        }
+
+        table tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        /* Tablas apiladas en móvil */
+        @media (max-width: 768px) {
+            table {
+                font-size: 11px;
+            }
+
+            table th,
+            table td {
+                padding: 6px 4px;
+                min-width: 100px;
+            }
+
+            /* Versión apilada para tablas complejas */
+            .stacked-table {
+                display: block;
+            }
+
+            .stacked-table thead {
+                display: none;
+            }
+
+            .stacked-table tr {
+                display: block;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background: white;
+            }
+
+            .stacked-table td {
+                display: block;
+                text-align: right;
+                border: none;
+                border-bottom: 1px solid #eee;
+                padding: 8px;
+            }
+
+            .stacked-table td:last-child {
+                border-bottom: none;
+            }
+
+            .stacked-table td::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                color: #478935;
+            }
+        }
+
+        .pricing-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #478935;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #F80145;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pricing-item .plan-name {
+            font-weight: bold;
+            color: #333;
+            font-size: clamp(14px, 3.5vw, 16px);
+            flex: 1 1 auto;
+        }
+
+        .pricing-item .prices {
+            text-align: right;
+            flex: 0 1 auto;
+        }
+
+        .pricing-item .price-usd {
+            font-size: clamp(18px, 5vw, 22px);
+            font-weight: bold;
+            color: #478935;
+        }
+
+        .pricing-item .price-period {
+            font-size: clamp(10px, 2.5vw, 12px);
+            color: #888;
+            margin-top: 3px;
+        }
+
+        .savings-badge {
+            background: #478935;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: clamp(10px, 2.5vw, 11px);
+            margin-left: 8px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .red-text {
+            color: #d32f2f;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .official-email {
+            background: #e3f2fd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            word-break: break-word;
+            display: inline-block;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #1976D2;
+            text-decoration: none;
+            word-wrap: break-word;
+        }
+
+        a:active {
+            opacity: 0.7;
+        }
+
+        @media (min-width: 769px) {
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+        hr {
+            margin: 25px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Optimización de contenido */
+        .content-section {
+            contain: layout style paint;
+        }
+
+        /* Estilos responsive adicionales */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .critical,
+            .important,
+            .info,
+            .success,
+            .contact-box,
+            .legal,
+            .pricing-box {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            h1 {
+                margin-bottom: 15px;
+            }
+
+            h2 {
+                margin-top: 25px;
+                margin-bottom: 12px;
+            }
+
+            h3 {
+                margin-top: 15px;
+                margin-bottom: 8px;
+            }
+
+            ul, ol {
+                margin-left: 15px;
+            }
+
+            .pricing-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pricing-item .prices {
+                text-align: left;
+                width: 100%;
+            }
+        }
+
+        /* Optimización para reducir motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Estilos de impresión */
+        @media print {
+            body {
+                max-width: 100%;
+                background: white;
+            }
+
+            .critical,
+            .important,
+            .info,
+            .success,
+            .legal {
+                border: 1px solid #999;
+                page-break-inside: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>📜 Términos y Condiciones de Uso</h1>
+    
+    <div class="last-update">
+        <strong>Última actualización:</strong> 14 de enero de 2025<br>
+        <strong>Versión:</strong> 2.0 - Reforzada
+    </div>
+
+    <p>
+        Bienvenido a <strong>GrapePrest</strong>, una aplicación de gestión de préstamos 
+        desarrollada por <strong>GRAPE CONSULTING SRL</strong>.
+    </p>
+
+    <div class="critical">
+        <p class="bold red-text" style="font-size: 1.05em;">
+            ⚠️ LEE ESTO ANTES DE USAR LA APLICACIÓN
+        </p>
+        <p>
+            Al descargar, instalar o usar GrapePrest, aceptas estar <strong>legalmente vinculado</strong> 
+            por estos Términos y Condiciones, nuestra Política de Privacidad y Política de Reembolso.
+        </p>
+        <p class="bold">
+            Si NO estás de acuerdo con alguno de estos términos, NO descargues ni uses la aplicación.
+        </p>
+    </div>
+
+    <!-- SECCIÓN 1 -->
+    <div class="content-section">
+        <h2>1. Definiciones</h2>
+        <ul>
+            <li><strong>"La App" / "GrapePrest":</strong> Aplicación móvil de gestión de préstamos</li>
+            <li><strong>"Nosotros" / "La Empresa" / "GRAPE CONSULTING":</strong> GRAPE CONSULTING SRL, RNC 133-24041-6</li>
+            <li><strong>"Usuario" / "Tú":</strong> Persona física o jurídica que descarga y usa la app</li>
+            <li><strong>"Contenido del Usuario":</strong> Datos de clientes, préstamos, pagos, reportes que TÚ creas y almacenas</li>
+            <li><strong>"Servicios":</strong> Todas las funcionalidades de la app (gratuitas y Premium)</li>
+            <li><strong>"Datos Locales":</strong> Información almacenada en la memoria de tu dispositivo</li>
+            <li><strong>"Backup en la Nube":</strong> Copia de seguridad temporal y cifrada en nuestros servidores (solo Premium)</li>
+            <li><strong>"Plan Gratuito":</strong> Versión básica con limitaciones de uso</li>
+            <li><strong>"Plan Premium":</strong> Suscripción de pago con funciones avanzadas</li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 2 -->
+    <div class="content-section">
+        <h2>2. Modelo de Almacenamiento y Propiedad de Datos</h2>
+
+        <div class="critical">
+            <h3>📱 IMPORTANTE: GrapePrest Funciona Localmente</h3>
+            <p class="bold">
+                GrapePrest NO es una aplicación basada en la nube. Todos tus datos se almacenan 
+                <strong>LOCALMENTE en tu dispositivo</strong>, NO en nuestros servidores.
+            </p>
+        </div>
+
+        <h3>2.1 Almacenamiento de Datos</h3>
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Dato</th>
+                    <th>Dónde se Almacena</th>
+                    <th>Quién Tiene Acceso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Tipo de Dato">Clientes, préstamos, pagos</td>
+                    <td data-label="Dónde se Almacena">Base de datos local en tu dispositivo</td>
+                    <td data-label="Quién Tiene Acceso">Solo TÚ</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato">Reportes y estadísticas</td>
+                    <td data-label="Dónde se Almacena">Generados en tiempo real (local)</td>
+                    <td data-label="Quién Tiene Acceso">Solo TÚ</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato">Configuraciones de la app</td>
+                    <td data-label="Dónde se Almacena">Preferencias del sistema (local)</td>
+                    <td data-label="Quién Tiene Acceso">Solo TÚ</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato">Backup en la nube (Premium)</td>
+                    <td data-label="Dónde se Almacena">Servidores de GRAPE CONSULTING (cifrado AES-256)</td>
+                    <td data-label="Quién Tiene Acceso">Solo TÚ (con autenticación Google Play)</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato">Datos de compra (Order ID, fecha, monto)</td>
+                    <td data-label="Dónde se Almacena">Google Play + GRAPE CONSULTING</td>
+                    <td data-label="Quién Tiene Acceso">Google Play + GRAPE CONSULTING</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2.2 Propiedad de Datos</h3>
+        <div class="info">
+            <p><strong>TÚ eres el ÚNICO propietario de:</strong></p>
+            <ul>
+                <li>✅ Todos los datos de tus clientes</li>
+                <li>✅ Toda la información de préstamos</li>
+                <li>✅ Todos los reportes y exportaciones</li>
+                <li>✅ Cualquier contenido creado dentro de la app</li>
+            </ul>
+            <p class="bold">
+                GRAPE CONSULTING SRL NO reclama ningún derecho de propiedad sobre tu contenido.
+            </p>
+        </div>
+
+        <h3>2.3 Acceso a Datos por Parte de GRAPE CONSULTING</h3>
+        <div class="legal">
+            <p><strong>NO tenemos acceso a:</strong></p>
+            <ul>
+                <li>❌ Nombres, teléfonos o direcciones de tus clientes</li>
+                <li>❌ Montos de préstamos o pagos</li>
+                <li>❌ Reportes que generas</li>
+                <li>❌ Contenido de backups en la nube (están cifrados con AES-256)</li>
+            </ul>
+            <p><strong>Solo tenemos acceso a:</strong></p>
+            <ul>
+                <li>✅ Información transaccional de Google Play (Order IDs, fechas de compra, montos de suscripción)</li>
+                <li>✅ Logs de sincronización (fechas/horas, IPs, sin contenido de datos)</li>
+                <li>✅ Información de soporte (si nos contactas por email)</li>
+            </ul>
+        </div>
+
+        <h3>2.4 Backup en la Nube (Solo Premium)</h3>
+        <div class="important">
+            <p><strong>☁️ Características del Backup en la Nube:</strong></p>
+            <ul>
+                <li>🔐 <strong>Cifrado:</strong> Tus datos se cifran con AES-256 antes de subirse</li>
+                <li>⏰ <strong>Temporal:</strong> NO es almacenamiento permanente</li>
+                <li>🔄 <strong>Sincronización:</strong> Automática cada 12 horas (si está activa)</li>
+                <li>🗑️ <strong>Eliminación automática:</strong> Después de 30 días de inactividad SIN PREVIO AVISO</li>
+                <li>❌ <strong>Sin notificaciones:</strong> No tenemos tu email registrado, no podemos avisarte</li>
+                <li>✅ <strong>Tu responsabilidad:</strong> Verificar estado regularmente en Configuración → Backup</li>
+            </ul>
+            <p class="bold red-text">
+                ⚠️ Para más detalles, consulta nuestra 
+                <a href="gestion-datos.html">Política de Gestión de Datos y Backups</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 3 -->
+    <div class="content-section">
+        <h2>3. Licencia de Uso</h2>
+
+        <h3>3.1 Concesión de Licencia</h3>
+        <p>
+            Te otorgamos una licencia <strong>personal, no exclusiva, no transferible, revocable y limitada</strong> 
+            para instalar y usar GrapePrest en dispositivos compatibles que tú posees o controlas, 
+            sujeto a estos términos.
+        </p>
+
+        <h3>3.2 Restricciones de Uso</h3>
+        <p><strong>NO puedes:</strong></p>
+        <ul>
+            <li>❌ Copiar, modificar, descompilar, realizar ingeniería inversa o desensamblar la app</li>
+            <li>❌ Revender, alquilar, prestar o redistribuir la app a terceros</li>
+            <li>❌ Crear obras derivadas o aplicaciones competidoras basadas en GrapePrest</li>
+            <li>❌ Eliminar, ocultar o modificar avisos de derechos de autor o marcas registradas</li>
+            <li>❌ Usar la app en dispositivos rooteados/jailbreak (puede causar inestabilidad)</li>
+            <li>❌ Intentar acceder a servidores, backups o datos de otros usuarios</li>
+            <li>❌ Usar técnicas de scraping, bots o automatización no autorizada</li>
+            <li>❌ Interferir con el funcionamiento normal de la app o servidores</li>
+        </ul>
+
+        <h3>3.3 Requisitos Técnicos</h3>
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Requisito</th>
+                    <th>Especificación Mínima</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Requisito"><strong>Sistema Operativo</strong></td>
+                    <td data-label="Especificación Mínima">Android 7.0 (Nougat) o superior</td>
+                </tr>
+                <tr>
+                    <td data-label="Requisito"><strong>Espacio de Almacenamiento</strong></td>
+                    <td data-label="Especificación Mínima">50 MB libres (más espacio para tus datos)</td>
+                </tr>
+                <tr>
+                    <td data-label="Requisito"><strong>RAM</strong></td>
+                    <td data-label="Especificación Mínima">Mínimo 2 GB recomendado</td>
+                </tr>
+                <tr>
+                    <td data-label="Requisito"><strong>Conexión a Internet</strong></td>
+                    <td data-label="Especificación Mínima">
+                        Opcional para uso local<br>
+                        Requerida para: Backup en la nube, actualizaciones, soporte
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Requisito"><strong>Permisos</strong></td>
+                    <td data-label="Especificación Mínima">
+                        • Almacenamiento (para guardar datos locales y exportaciones)<br>
+                        • Internet (para backup y actualizaciones)<br>
+                        • WhatsApp (opcional, para recordatorios Premium)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="bold red-text">
+            ⚠️ No garantizamos compatibilidad con dispositivos que no cumplan estos requisitos.
+        </p>
+    </div>
+
+    <!-- SECCIÓN 4 -->
+    <div class="content-section">
+        <h2>4. Planes y Suscripciones</h2>
+
+        <h3>4.1 Comparativa de Planes</h3>
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Plan Gratuito</th>
+                    <th>Plan Premium</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Característica">Clientes</td>
+                    <td data-label="Plan Gratuito">Hasta 20</td>
+                    <td data-label="Plan Premium">✅ Ilimitados</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Préstamos activos</td>
+                    <td data-label="Plan Gratuito">Hasta 30</td>
+                    <td data-label="Plan Premium">✅ Ilimitados</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Reportes</td>
+                    <td data-label="Plan Gratuito">✅ Ilimitados</td>
+                    <td data-label="Plan Premium">✅ Ilimitados</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Exportación PDF</td>
+                    <td data-label="Plan Gratuito">✅ Sí</td>
+                    <td data-label="Plan Premium">✅ Sí</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Exportación Excel/CSV</td>
+                    <td data-label="Plan Gratuito">❌ No</td>
+                    <td data-label="Plan Premium">✅ Sí</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Backup local</td>
+                    <td data-label="Plan Gratuito">✅ Manual</td>
+                    <td data-label="Plan Premium">✅ Manual</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Backup en la nube</td>
+                    <td data-label="Plan Gratuito">❌ No</td>
+                    <td data-label="Plan Premium">✅ Automático/Manual</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Recordatorios WhatsApp</td>
+                    <td data-label="Plan Gratuito">❌ No</td>
+                    <td data-label="Plan Premium">✅ Sí</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Anuncios</td>
+                    <td data-label="Plan Gratuito">Sí (moderados)</td>
+                    <td data-label="Plan Premium">❌ Sin anuncios</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Soporte</td>
+                    <td data-label="Plan Gratuito">Email estándar (48-72 hrs)</td>
+                    <td data-label="Plan Premium">Email prioritario (24 hrs)</td>
+                </tr>
+                <tr>
+                    <td data-label="Característica">Actualizaciones</td>
+                    <td data-label="Plan Gratuito">Estándar</td>
+                    <td data-label="Plan Premium">Acceso anticipado a nuevas funciones</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4.2 Precios de Suscripción Premium</h3>
+        
+        <div class="pricing-box">
+            <div class="pricing-item">
+                <div class="plan-name">
+                    📅 Plan Mensual
+                </div>
+                <div class="prices">
+                    <div class="price-usd">$3.99 USD</div>
+                    <div class="price-period">por mes / renovación automática</div>
+                </div>
+            </div>
+            
+            <div class="pricing-item">
+                <div class="plan-name">
+                    ⭐ Plan Anual
+                    <span class="savings-badge">🎉 AHORRA $7.89 al año</span>
+                </div>
+                <div class="prices">
+                    <div class="price-usd">$39.99 USD</div>
+                    <div class="price-period">por año (equivale a $3.33 USD/mes)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <p style="text-align: center; color: #666; font-size: 13px;">
+                💰 <strong>Nota sobre Precios:</strong> 
+                Todos los precios están en Dólares Estadounidenses (USD). 
+                Google Play convertirá automáticamente a tu moneda local según la tasa de cambio vigente 
+                al momento de la compra.
+            </p>
+            <p style="text-align: center; color: #666; font-size: 12px;">
+                <em>Ejemplo: 1 USD ≈ 60 RD$ (la tasa real la determina Google Play)</em>
+            </p>
+        </div>
+
+        <h3>4.3 Renovación Automática</h3>
+        <div class="important">
+            <p><strong>⚠️ IMPORTANTE sobre Renovaciones:</strong></p>
+            <ul>
+                <li>Las suscripciones se renuevan <strong>automáticamente</strong> a través de Google Play al final de cada período (mensual o anual)</li>
+                <li>El cobro se realiza <strong>24 horas antes</strong> de que expire tu suscripción actual</li>
+                <li>Para evitar renovación, debes cancelar <strong>al menos 24 horas antes</strong> del fin del período</li>
+                <li>Al renovar, aceptas el precio vigente en ese momento (puede haber aumentado)</li>
+                <li>Recibirás notificación de Google Play antes de cada renovación</li>
+            </ul>
+        </div>
+
+        <h3>4.4 Cómo Cancelar tu Suscripción</h3>
+        <p><strong>Puedes cancelar en cualquier momento desde:</strong></p>
+        <ol>
+            <li>Abre <strong>Google Play Store</strong></li>
+            <li>Toca tu foto de perfil → <strong>Pagos y suscripciones → Suscripciones</strong></li>
+            <li>Selecciona <strong>GrapePrest</strong></li>
+            <li>Toca <strong>"Cancelar suscripción"</strong></li>
+            <li>Sigue las instrucciones</li>
+        </ol>
+
+        <p><strong>Qué sucede al cancelar:</strong></p>
+        <ul>
+            <li>✅ Mantienes acceso Premium hasta el final del período ya pagado</li>
+            <li>✅ No se te cobrará en la siguiente renovación</li>
+            <li>✅ Tus datos locales permanecen intactos</li>
+            <li>⚠️ Tu backup en la nube se eliminará 30 días después del vencimiento (exporta antes)</li>
+            <li>✅ Puedes reactivar Premium cuando quieras</li>
+            <li>❌ NO hay reembolso por días no usados del período actual</li>
+        </ul>
+
+        <h3>4.5 Cambio de Precios</h3>
+        <p>
+            Nos reservamos el derecho de modificar precios de suscripción con <strong>30 días de aviso previo</strong>. 
+        </p>
+        <ul>
+            <li>Los cambios NO afectan suscripciones ya activas hasta su próxima renovación</li>
+            <li>Te notificaremos mediante la app</li>
+            <li>Puedes cancelar antes de la renovación si no estás de acuerdo con el nuevo precio</li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 5 -->
+    <div class="content-section">
+        <h2>5. Procesamiento de Pagos</h2>
+
+        <p>
+            Todos los pagos de suscripciones Premium se procesan exclusivamente a través de 
+            <strong>Google Play Billing</strong>.
+        </p>
+
+        <h3>5.1 Información Importante sobre Pagos</h3>
+        <ul>
+            <li>✅ Los cobros aparecerán en tu estado de cuenta como <strong>"Google Play - GrapePrest"</strong></li>
+            <li>✅ GRAPE CONSULTING SRL <strong>NO almacena ni procesa</strong> datos de tarjetas de crédito/débito</li>
+            <li>✅ Toda información de pago es gestionada por Google Play según sus políticas de seguridad</li>
+            <li>✅ Para disputas de pago, contacta primero a 
+                <a href="https://support.google.com/googleplay" target="_blank">Google Play Soporte</a>
+            </li>
+            <li>✅ El cobro se realiza en la moneda de tu cuenta de Google Play</li>
+            <li>⚠️ Tu banco puede aplicar comisiones adicionales por conversión de moneda</li>
+        </ul>
+
+        <h3>5.2 Aceptación de Términos de Terceros</h3>
+        <p>Al suscribirte a Premium, también aceptas:</p>
+        <ul>
+            <li>
+                <a href="https://play.google.com/intl/es_es/about/play-terms/" target="_blank">
+                    Términos de Servicio de Google Play
+                </a>
+            </li>
+            <li>
+                <a href="https://policies.google.com/privacy" target="_blank">
+                    Política de Privacidad de Google
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 6 -->
+    <div class="content-section">
+        <h2>6. Política de Reembolsos</h2>
+
+        <p>
+            Nuestra política completa de reembolsos está disponible en: 
+            <a href="politica-reembolso.html">Política de Reembolso</a>
+        </p>
+
+        <div class="important">
+            <h3>📋 Resumen de Casos de Reembolso</h3>
+            
+            <p><strong>✅ Reembolso APROBADO en:</strong></p>
+            <ul>
+                <li><strong>Primeras 48 horas:</strong> Reembolso completo sin preguntas (sujeto a límites de uso razonable para evaluación)</li>
+                <li><strong>Error técnico grave:</strong> Comprobado por nuestro equipo + 3 días sin solución</li>
+                <li><strong>Cobro duplicado:</strong> Con evidencia de doble cargo (estados de cuenta)</li>
+                <li><strong>Incompatibilidad:</strong> Dispositivo cumple requisitos pero app no funciona (primeras 48h)</li>
+            </ul>
+
+            <p><strong>❌ Reembolso RECHAZADO en:</strong></p>
+            <ul>
+                <li>Después de 7 días sin causa técnica comprobable</li>
+                <li>Cambio de opinión después de uso prolongado</li>
+                <li>Uso que excede límites de evaluación (ej: 100+ préstamos en 48 horas)</li>
+                <li>Renovaciones automáticas olvidadas por el usuario</li>
+                <li>Violación de estos Términos y Condiciones</li>
+            </ul>
+
+            <p class="bold red-text">
+                ⚠️ Detectamos y rechazamos automáticamente solicitudes de reembolso fraudulentas 
+                (ej: uso comercial intensivo seguido de solicitud de reembolso).
+            </p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 7 -->
+    <div class="content-section">
+        <h2>7. Responsabilidades y Obligaciones del Usuario</h2>
+
+        <h3>7.1 Uso Legal y Ético</h3>
+        <p><strong>Te comprometes expresamente a:</strong></p>
+        <ul>
+            <li>✅ Usar GrapePrest SOLO para gestión legítima de préstamos personales o comerciales</li>
+            <li>✅ Cumplir con TODAS las leyes aplicables de tu país sobre préstamos, intereses y cobros</li>
+            <li>✅ NO usar tasas de interés que constituyan usura según leyes locales</li>
+            <li>✅ Respetar la privacidad y dignidad de tus clientes/deudores</li>
+            <li>✅ Obtener consentimiento explícito de clientes para almacenar sus datos personales</li>
+            <li>✅ Mantener documentación oficial adicional (contratos, pagarés) fuera de la app</li>
+            <li>✅ Declarar ingresos por préstamos según obligaciones fiscales de tu país</li>
+        </ul>
+
+        <h3>7.2 Usos Estrictamente Prohibidos</h3>
+        <div class="critical">
+            <p class="bold">❌ ESTÁ TERMINANTEMENTE PROHIBIDO usar GrapePrest para:</p>
+            <ul>
+                <li>
+                    <strong>Actividades ilegales:</strong>
+                    <ul>
+                        <li>Lavado de dinero o financiamiento ilícito</li>
+                        <li>Préstamos a tasas usurarias (superiores a límites legales)</li>
+                        <li>Ocultamiento de ingresos o evasión fiscal</li>
+                        <li>Financiamiento de actividades criminales</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Acoso o extorsión:</strong>
+                    <ul>
+                        <li>Amenazas a deudores o familiares</li>
+                        <li>Publicación de datos personales de deudores (doxxing)</li>
+                        <li>Acoso telefónico o por mensajes excesivos</li>
+                        <li>Violencia o intimidación</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Fraude:</strong>
+                    <ul>
+                        <li>Manipulación de reportes para engañar a terceros</li>
+                        <li>Creación de documentos falsos</li>
+                        <li>Suplantación de identidad</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Violación de derechos de terceros:</strong>
+                    <ul>
+                        <li>Uso no autorizado de datos personales de clientes</li>
+                        <li>Venta de información de deudores a terceros</li>
+                        <li>Compartir datos sin consentimiento</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="bold red-text">
+                ⚠️ La violación de estas prohibiciones resultará en suspensión inmediata de tu 
+                acceso a Premium, eliminación de backups y posible reporte a autoridades competentes.
+            </p>
+        </div>
+
+        <h3>7.3 Responsabilidad sobre Datos de Terceros</h3>
+        <div class="legal">
+            <h4>👥 Protección de Datos Personales de tus Clientes</h4>
+            <p>
+                Al usar GrapePrest para almacenar información de tus clientes (nombres, teléfonos, 
+                direcciones, montos de deuda), <strong>TÚ actúas como "responsable del tratamiento de datos"</strong> 
+                según leyes de protección de datos.
+            </p>
+
+            <p><strong>Tus obligaciones legales incluyen:</strong></p>
+            <ul>
+                <li>
+                    <strong>Ley 172-13 (República Dominicana):</strong>
+                    <ul>
+                        <li>Art. 8: Obtener consentimiento de clientes para almacenar sus datos</li>
+                        <li>Art. 13: Implementar medidas de seguridad (PIN en dispositivo, no compartir)</li>
+                        <li>Art. 26: Respetar derecho al olvido (eliminar datos si cliente lo solicita)</li>
+                        <li>Art. 30: Notificar a clientes en caso de brecha de seguridad (ej: robo de teléfono)</li>
+                    </ul>
+                </li>
+                <li><strong>GDPR (si tienes clientes en Europa):</strong> Cumplimiento total del Reglamento General de Protección de Datos</li>
+                <li><strong>CCPA (si tienes clientes en California):</strong> Ley de Privacidad del Consumidor de California</li>
+                <li><strong>LGPD (si tienes clientes en Brasil):</strong> Lei Geral de Proteção de Dados</li>
+            </ul>
+
+            <p class="bold red-text">
+                ⚠️ GRAPE CONSULTING SRL NO es responsable de tu cumplimiento con estas leyes. 
+                GrapePrest es solo una herramienta; TÚ decides qué datos ingresas y cómo los proteges.
+            </p>
+        </div>
+
+        <h3>7.4 Seguridad de tu Dispositivo y Datos</h3>
+        <p><strong>Eres responsable de:</strong></p>
+        <ul>
+            <li>
+                🔐 <strong>Proteger tu dispositivo:</strong>
+                <ul>
+                    <li>Usar PIN, contraseña, huella digital o reconocimiento facial</li>
+                    <li>No dejar tu teléfono desbloqueado en lugares públicos</li>
+                    <li>No prestar tu dispositivo con GrapePrest abierto</li>
+                </ul>
+            </li>
+            <li>
+                💾 <strong>Realizar backups regulares:</strong>
+                <ul>
+                    <li>Exportar datos a PDF/Excel periódicamente</li>
+                    <li>Guardar exportaciones en múltiples lugares (email, USB, nube personal)</li>
+                    <li>Verificar estado de backup en la nube (si tienes Premium)</li>
+                </ul>
+            </li>
+            <li>
+                🚨 <strong>Reportar incidentes:</strong>
+                <ul>
+                    <li>Notificarnos si sospechas acceso no autorizado</li>
+                    <li>Notificar a tus clientes si pierdes dispositivo con sus datos</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>7.5 Responsabilidad de Backups</h3>
+        <div class="important">
+            <p><strong>Plan Gratuito:</strong></p>
+            <ul>
+                <li>TÚ eres <strong>100% responsable</strong> de hacer backups manuales exportando tus datos</li>
+                <li>
+                    GRAPE CONSULTING SRL <strong>NO es responsable</strong> de pérdida de datos por:
+                    <ul>
+                        <li>Desinstalación de la app</li>
+                        <li>Formateo o reseteo de dispositivo</li>
+                        <li>Robo, pérdida o daño del teléfono</li>
+                        <li>Fallas del sistema operativo</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><strong>Plan Premium:</strong></p>
+            <ul>
+                <li>Ofrecemos backup automático en la nube como <strong>herramienta de conveniencia</strong></li>
+                <li>El backup es <strong>temporal</strong> y se elimina automáticamente tras 30 días de inactividad <strong>SIN PREVIO AVISO</strong></li>
+                <li>
+                    Es tu responsabilidad:
+                    <ul>
+                        <li>Verificar que la sincronización esté activa</li>
+                        <li>Revisar regularmente el estado en Configuración → Backup</li>
+                        <li>Crear exportaciones adicionales fuera de GrapePrest</li>
+                    </ul>
+                </li>
+                <li><strong>NO garantizamos disponibilidad del 100%</strong> del servicio de backup (pueden ocurrir fallas técnicas)</li>
+            </ul>
+
+            <p class="bold red-text">
+                ⚠️ RECOMENDACIÓN: Siempre mantén múltiples copias de tus datos en diferentes lugares, 
+                independientemente del plan que uses.
+            </p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 8 -->
+    <div class="content-section">
+        <h2>8. Propiedad Intelectual</h2>
+
+        <h3>8.1 Propiedad de GRAPE CONSULTING SRL</h3>
+        <p>
+            Los siguientes elementos son propiedad exclusiva de GRAPE CONSULTING SRL y están 
+            protegidos por leyes de derechos de autor, marcas registradas y propiedad intelectual:
+        </p>
+        <ul>
+            <li>📱 El software GrapePrest (código fuente, algoritmos, arquitectura)</li>
+            <li>🎨 Diseño gráfico, interfaz de usuario, iconos</li>
+            <li>🏷️ Nombre "GrapePrest" y logo</li>
+            <li>📄 Documentación, tutoriales, materiales de ayuda</li>
+            <li>🌐 Sitio web y contenido relacionado</li>
+        </ul>
+
+        <p>Cualquier uso no autorizado de estos elementos puede resultar en acciones legales.</p>
+
+        <h3>8.2 Propiedad de tu Contenido</h3>
+        <div class="info">
+            <p><strong>TÚ conservas TODOS los derechos sobre:</strong></p>
+            <ul>
+                <li>✅ Datos de tus clientes que ingresas</li>
+                <li>✅ Información de préstamos y pagos</li>
+                <li>✅ Reportes que generas</li>
+                <li>✅ Archivos que exportas (PDF, Excel)</li>
+            </ul>
+            <p class="bold">
+                GRAPE CONSULTING SRL NO reclama ningún derecho de propiedad sobre tu contenido 
+                y NO usamos tus datos para ningún propósito comercial.
+            </p>
+        </div>
+
+        <h3>8.3 Licencia de Uso de tu Contenido</h3>
+        <p>
+            Al usar el servicio de backup en la nube (Premium), nos otorgas una licencia 
+            <strong>limitada, no exclusiva y revocable</strong> para:
+        </p>
+        <ul>
+            <li>Almacenar temporalmente tus datos cifrados en nuestros servidores</li>
+            <li>Transmitir datos entre tu dispositivo y la nube durante sincronización</li>
+            <li>Restaurar tus datos cuando lo solicites</li>
+        </ul>
+        <p>Esta licencia <strong>termina automáticamente</strong> cuando:</p>
+        <ul>
+            <li>Cancelas tu suscripción Premium (30 días después)</li>
+            <li>Eliminas manualmente tu backup</li>
+            <li>Tu backup se elimina por inactividad (30 días)</li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 9 -->
+    <div class="content-section">
+        <h2>9. Limitación de Responsabilidad</h2>
+
+        <div class="critical">
+            <h3>⚠️ DISCLAIMER LEGAL IMPORTANTE - LEE CON ATENCIÓN</h3>
+            <p class="bold red-text" style="font-size: 1.05em;">
+                USO DE GRAPEPREST BAJO TU PROPIO RIESGO
+            </p>
+        </div>
+
+        <h3>9.1 Naturaleza de la Aplicación</h3>
+        <p>GrapePrest es una <strong>herramienta de gestión y organización</strong>, NO es:</p>
+        <ul>
+            <li>❌ Un servicio financiero regulado</li>
+            <li>❌ Un sistema contable certificado</li>
+            <li>❌ Asesoría legal o financiera</li>
+            <li>❌ Un registro oficial de préstamos</li>
+            <li>❌ Una plataforma de cobro automático</li>
+        </ul>
+
+        <h3>9.2 Exclusiones de Responsabilidad</h3>
+        <p class="bold">GRAPE CONSULTING SRL NO ES RESPONSABLE DE:</p>
+
+        <h4>❌ Pérdidas de Datos:</h4>
+        <ul>
+            <li>Pérdida de datos locales por desinstalación, formateo, robo o daño de dispositivo</li>
+            <li>Eliminación automática de backups por inactividad (30 días)</li>
+            <li>Fallas técnicas del dispositivo o sistema operativo</li>
+            <li>Malware, virus o software malicioso en tu dispositivo</li>
+            <li>Modificaciones del sistema (root/jailbreak)</li>
+            <li>No realizar backups manuales adicionales</li>
+        </ul>
+
+        <h4>❌ Pérdidas Económicas:</h4>
+        <ul>
+            <li>Pérdidas financieras derivadas de préstamos mal gestionados</li>
+            <li>Incumplimiento de clientes/deudores en pagos</li>
+            <li>Errores en cálculos de intereses (verifica siempre los resultados)</li>
+            <li>Decisiones comerciales basadas exclusivamente en reportes de la app</li>
+            <li>Pérdidas por no poder acceder a datos (ej: teléfono perdido sin backup)</li>
+        </ul>
+
+        <h4>❌ Problemas Legales:</h4>
+        <ul>
+            <li>Violación de leyes sobre tasas de interés o usura</li>
+            <li>Incumplimiento de leyes de protección de datos de clientes</li>
+            <li>Disputas legales con deudores</li>
+            <li>Problemas fiscales por no declarar ingresos</li>
+            <li>Uso de la app para actividades ilegales</li>
+        </ul>
+
+        <h4>❌ Problemas Técnicos:</h4>
+        <ul>
+            <li>Incompatibilidad con dispositivos que no cumplen requisitos mínimos</li>
+            <li>Conflictos con otras apps instaladas</li>
+            <li>Problemas de conexión a internet del usuario</li>
+            <li>Fallas en servicios de terceros (Google Play, WhatsApp)</li>
+        </ul>
+
+        <h4>❌ Contenido y Exactitud:</h4>
+        <ul>
+            <li>Exactitud, veracidad o legalidad de información ingresada por el usuario</li>
+            <li>Errores de cálculo por datos incorrectos ingresados</li>
+            <li>Uso indebido de información de clientes</li>
+        </ul>
+
+        <h3>9.3 Garantías Limitadas</h3>
+        <p>
+            La app se proporciona <strong>"TAL CUAL" (AS IS)</strong> y <strong>"SEGÚN DISPONIBILIDAD" (AS AVAILABLE)</strong>, 
+            sin garantías de ningún tipo, excepto las legalmente obligatorias que no pueden ser excluidas.
+        </p>
+
+        <p><strong>NO garantizamos:</strong></p>
+        <ul>
+            <li>Funcionamiento ininterrumpido o libre de errores</li>
+            <li>Resultados específicos de uso</li>
+            <li>Disponibilidad del 100% del servicio de backup</li>
+            <li>Compatibilidad con futuras versiones de Android</li>
+            <li>Que la app cumplirá tus expectativas o necesidades específicas</li>
+        </ul>
+
+        <h3>9.4 Límite de Indemnización</h3>
+        <div class="legal">
+            <p>
+                En la medida máxima permitida por ley, la responsabilidad total de GRAPE CONSULTING SRL 
+                por cualquier reclamo relacionado con GrapePrest estará limitada al monto que hayas 
+                pagado por tu suscripción Premium en los últimos 12 meses.
+            </p>
+            <p class="bold">
+                Si usas el Plan Gratuito, nuestra responsabilidad máxima es CERO ($0).
+            </p>
+        </div>
+    </div>
+
+    <!-- Continuación en siguiente mensaje por límite de caracteres... -->
+
+    <!-- SECCIÓN 10-15 -->
+    <div class="content-section">
+        <h2>10. Disponibilidad y Mantenimiento del Servicio</h2>
+
+        <h3>10.1 Esfuerzos Razonables</h3>
+        <p>
+            Nos esforzamos por mantener GrapePrest disponible 24/7, pero NO garantizamos disponibilidad 
+            ininterrumpida.
+        </p>
+
+        <h3>10.2 Interrupciones del Servicio</h3>
+        <p>El servicio puede suspenderse temporalmente por:</p>
+        <ul>
+            <li>
+                <strong>Mantenimiento programado:</strong>
+                <ul>
+                    <li>Te avisaremos con 48 horas de anticipación (en la app)</li>
+                    <li>Generalmente en horarios de baja demanda</li>
+                    <li>Duración estimada: 1-4 horas</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Emergencias técnicas:</strong>
+                <ul>
+                    <li>Fallas de servidores</li>
+                    <li>Ataques de seguridad (DDoS, hacking)</li>
+                    <li>Problemas con proveedores de infraestructura</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Actualizaciones críticas de seguridad:</strong>
+                <ul>
+                    <li>Pueden ser implementadas sin aviso previo</li>
+                    <li>Priorizamos la seguridad de datos</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p><strong>Durante interrupciones:</strong></p>
+        <ul>
+            <li>✅ Tus datos locales NO se afectan (puedes seguir usando la app sin internet)</li>
+            <li>⚠️ Backup en la nube no estará disponible temporalmente</li>
+            <li>⚠️ No podrás sincronizar nuevos cambios</li>
+        </ul>
+
+        <h3>10.3 Fin del Servicio</h3>
+        <p>Si decidimos discontinuar GrapePrest permanentemente:</p>
+        <ul>
+            <li>Te avisaremos con <strong>90 días de anticipación</strong></li>
+            <li>Recibirás reembolso proporcional de suscripciones anuales activas</li>
+            <li>Tendrás tiempo para exportar todos tus datos</li>
+            <li>Proporcionaremos guías de migración a otras apps (si están disponibles)</li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 11 -->
+    <div class="content-section">
+        <h2>11. Terminación y Suspensión</h2>
+
+        <h3>11.1 Terminación por tu Parte</h3>
+        <p><strong>Puedes dejar de usar GrapePrest en cualquier momento:</strong></p>
+        <ul>
+            <li><strong>Cancelar suscripción:</strong> Desde Google Play (mantienes acceso hasta fin del período pagado)</li>
+            <li>
+                <strong>Desinstalar la app:</strong> 
+                <ul>
+                    <li>⚠️ Perderás todos los datos locales</li>
+                    <li>⚠️ Backup en la nube se eliminará después de 30 días de inactividad</li>
+                    <li>✅ Recomendación: Exporta tus datos ANTES de desinstalar</li>
+                </ul>
+            </li>
+            <li><strong>Eliminar backup manualmente:</strong> Desde Configuración → Backup → Eliminar backup de la nube</li>
+        </ul>
+
+        <h3>11.2 Suspensión o Terminación por Nuestra Parte</h3>
+        <p><strong>Podemos suspender o terminar tu acceso inmediatamente si:</strong></p>
+        <ul>
+            <li>
+                <strong>Violación de estos Términos:</strong>
+                <ul>
+                    <li>Uso de la app para actividades ilegales</li>
+                    <li>Reventa o distribución no autorizada</li>
+                    <li>Intento de hackear o dañar el servicio</li>
+                    <li>Ingeniería inversa del código</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Fraude:</strong>
+                <ul>
+                    <li>Abuso del sistema de reembolsos</li>
+                    <li>Uso de métodos de pago fraudulentos</li>
+                    <li>Múltiples cuentas para obtener períodos de prueba repetidos</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Riesgo de seguridad:</strong>
+                <ul>
+                    <li>Actividad sospechosa en tu cuenta</li>
+                    <li>Compromiso de seguridad detectado</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="critical">
+            <p><strong>Consecuencias de Terminación por Violación:</strong></p>
+            <ul>
+                <li>❌ Pérdida inmediata de acceso a funciones Premium</li>
+                <li>❌ Eliminación inmediata de backup en la nube (sin período de gracia)</li>
+                <li>❌ Bloqueo permanente de futuras suscripciones</li>
+                <li>❌ Posible retención de datos para investigación legal</li>
+                <li>❌ NO hay reembolso por tiempo restante de suscripción</li>
+                <li>⚠️ Tus datos locales NO se afectan (quedan en tu dispositivo)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 12-13 -->
+    <div class="content-section">
+        <h2>12. Modificaciones a los Términos</h2>
+
+        <h3>12.1 Derecho a Modificar</h3>
+        <p>Nos reservamos el derecho de actualizar estos Términos y Condiciones en cualquier momento.</p>
+
+        <h3>12.2 Notificación de Cambios</h3>
+        <p><strong>Te notificaremos de cambios mediante:</strong></p>
+        <ul>
+            <li>
+                <strong>Cambios menores (correcciones, aclaraciones):</strong>
+                <ul>
+                    <li>Actualización de la fecha en la página</li>
+                    <li>No requiere aceptación adicional</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Cambios importantes (afectan tus derechos o responsabilidades):</strong>
+                <ul>
+                    <li>Notificación en la app (popup al abrir)</li>
+                    <li>30 días de anticipación antes de que apliquen</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>12.3 Aceptación de Cambios</h3>
+        <ul>
+            <li>Continuar usando la app después de la fecha de vigencia de los cambios implica <strong>aceptación automática</strong></li>
+            <li>
+                Si NO estás de acuerdo con los nuevos términos:
+                <ul>
+                    <li>Cancela tu suscripción antes de que apliquen</li>
+                    <li>Deja de usar la app</li>
+                    <li>Puedes solicitar reembolso proporcional si los cambios afectan sustancialmente el servicio</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 13 -->
+    <div class="content-section">
+        <h2>13. Ley Aplicable y Resolución de Disputas</h2>
+
+        <h3>13.1 Jurisdicción</h3>
+        <p>
+            Estos Términos y Condiciones se rigen por las leyes de la <strong>República Dominicana</strong>, 
+            específicamente:
+        </p>
+        <ul>
+            <li>Código Civil Dominicano</li>
+            <li>Ley 358-05 de Protección al Consumidor</li>
+            <li>Ley 172-13 de Protección de Datos Personales</li>
+            <li>Ley 126-02 sobre Comercio Electrónico</li>
+        </ul>
+
+        <h3>13.2 Resolución de Disputas</h3>
+        <div class="info">
+            <p><strong>Proceso Escalonado de Resolución:</strong></p>
+            <ol>
+                <li>
+                    <strong>Nivel 1 - Soporte Técnico:</strong>
+                    <ul>
+                        <li>Envía email a: <span class="official-email">grapesoporte@gmail.com</span></li>
+                        <li>Describe claramente el problema</li>
+                        <li>Proporciona evidencia (capturas, Order IDs, etc.)</li>
+                        <li>Tiempo de respuesta: 24-48 horas hábiles</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Nivel 2 - Escalación Interna:</strong>
+                    <ul>
+                        <li>Si no estás satisfecho con la respuesta inicial</li>
+                        <li>Solicita escalación a supervisor</li>
+                        <li>Revisión en 72 horas hábiles</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Nivel 3 - Google Play:</strong>
+                    <ul>
+                        <li>Para disputas de pago: Google Play Support</li>
+                        <li>Google actúa como intermediario</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Nivel 4 - Autoridad de Protección al Consumidor:</strong>
+                    <ul>
+                        <li><strong>República Dominicana:</strong> Pro Consumidor</li>
+                        <li><strong>México:</strong> PROFECO</li>
+                        <li><strong>Colombia:</strong> Superintendencia de Industria y Comercio</li>
+                        <li><strong>Otros países:</strong> Autoridad local competente</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Nivel 5 - Arbitraje o Tribunales:</strong>
+                    <ul>
+                        <li>Como último recurso</li>
+                        <li>Jurisdicción primaria: Santo Domingo, República Dominicana</li>
+                        <li>Respetamos el derecho del consumidor a litigar en su país de residencia</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h3>13.3 Derechos del Consumidor</h3>
+        <p>
+            Esta sección NO limita tus derechos como consumidor según las leyes imperativas 
+            (no renunciables) de tu país de residencia.
+        </p>
+    </div>
+
+    <!-- SECCIÓN 14 -->
+    <div class="content-section">
+        <h2>14. Disposiciones Generales</h2>
+
+        <h3>14.1 Divisibilidad</h3>
+        <p>
+            Si alguna cláusula de estos términos es declarada inválida o inaplicable por un tribunal, 
+            las demás cláusulas permanecen en pleno vigor.
+        </p>
+
+        <h3>14.2 No Renuncia</h3>
+        <p>
+            El hecho de que no exijamos inmediatamente el cumplimiento de algún derecho NO significa 
+            que renunciemos a ese derecho. Podemos ejercerlo en cualquier momento posterior.
+        </p>
+
+        <h3>14.3 Idioma</h3>
+        <p>
+            Estos términos están redactados en español. En caso de existir traducciones a otros idiomas, 
+            prevalece la versión en español en caso de conflicto.
+        </p>
+
+        <h3>14.4 Acuerdo Completo</h3>
+        <p>Estos Términos y Condiciones, junto con:</p>
+        <ul>
+            <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+            <li><a href="politica-reembolso.html">Política de Reembolso</a></li>
+            <li><a href="gestion-datos.html">Política de Gestión de Datos y Backups</a></li>
+        </ul>
+        <p>
+            Constituyen el <strong>acuerdo completo</strong> entre tú y GRAPE CONSULTING SRL 
+            respecto al uso de GrapePrest.
+        </p>
+
+        <h3>14.5 Cesión</h3>
+        <p>
+            NO puedes transferir o ceder tus derechos u obligaciones bajo estos términos a terceros 
+            sin nuestro consentimiento previo por escrito.
+        </p>
+        <p>
+            Nosotros podemos ceder este acuerdo a terceros (ej: en caso de venta de la empresa) 
+            previa notificación.
+        </p>
+
+        <h3>14.6 Supervivencia</h3>
+        <p>Las siguientes secciones sobreviven a la terminación de estos términos:</p>
+        <ul>
+            <li>Sección 8 (Propiedad Intelectual)</li>
+            <li>Sección 9 (Limitación de Responsabilidad)</li>
+            <li>Sección 13 (Ley Aplicable)</li>
+            <li>Cualquier obligación de pago pendiente</li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 15 - CONTACTO -->
+    <div class="contact-box">
+        <h2>15. Información de Contacto</h2>
+        
+        <p><strong>GRAPE CONSULTING SRL</strong></p>
+        <p><strong>RNC:</strong> 133-24041-6</p>
+        <p><strong>País:</strong> Santo Domingo, República Dominicana</p>
+        <p><strong>Aplicación:</strong> GrapePrest - Gestión de Préstamos</p>
+        
+        <hr style="margin: 20px 0;">
+        
+        <h3>📧 Correos Oficiales:</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de Consulta</th>
+                    <th>Email</th>
+                    <th>Usar Para</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Tipo de Consulta"><strong>🔧 Soporte Técnico</strong></td>
+                    <td data-label="Email">
+                        <a href="mailto:grapesoporte@gmail.com" class="official-email">
+                            grapesoporte@gmail.com
+                        </a>
+                    </td>
+                    <td data-label="Usar Para">
+                        • Problemas con la app<br>
+                        • Solicitudes de reembolso<br>
+                        • Bugs y errores<br>
+                        • Ayuda con funciones<br>
+                        • Cancelaciones<br>
+                        • Derechos de privacidad
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Consulta"><strong>💼 Negocios / Comercial</strong></td>
+                    <td data-label="Email">
+                        <a href="mailto:servicio.grapeconsulting@gmail.com" class="official-email">
+                            servicio.grapeconsulting@gmail.com
+                        </a>
+                    </td>
+                    <td data-label="Usar Para">
+                        • Consultas comerciales<br>
+                        • Partnerships<br>
+                        • Prensa y medios<br>
+                        • Facturación empresarial<br>
+                        • Consultas legales generales
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="font-size: 0.85em; color: #666; margin-top: 15px;">
+            ⚠️ Enviar al correo incorrecto puede retrasar tu respuesta. 
+            Por favor usa el email apropiado según tu consulta.
+        </p>
+        
+        <hr style="margin: 20px 0;">
+        
+        <h3>⏱️ Horario de Atención:</h3>
+        <p>Lunes a Viernes, 9:00 AM - 6:00 PM (GMT-4, hora de República Dominicana)</p>
+        
+        <h3>📞 Tiempos de Respuesta:</h3>
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Consulta</th>
+                    <th>Plan Gratuito</th>
+                    <th>Plan Premium</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Tipo de Consulta">Soporte general</td>
+                    <td data-label="Plan Gratuito">48-72 horas hábiles</td>
+                    <td data-label="Plan Premium">24 horas hábiles</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Consulta">Problemas técnicos</td>
+                    <td data-label="Plan Gratuito">48-72 horas hábiles</td>
+                    <td data-label="Plan Premium">24 horas hábiles</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Consulta">Reembolsos</td>
+                    <td data-label="Plan Gratuito">48 horas hábiles</td>
+                    <td data-label="Plan Premium">24 horas hábiles</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Consulta">Emergencias de seguridad</td>
+                    <td data-label="Plan Gratuito" colspan="2">6-12 horas (todos los usuarios)</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Consulta">Consultas comerciales</td>
+                    <td data-label="Plan Gratuito" colspan="2">3-5 días hábiles</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top: 20px;"><strong>🌐 Recursos Adicionales:</strong></p>
+        <ul>
+            <li><a href="index.html">Página Principal de GrapePrest</a></li>
+            <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+            <li><a href="politica-reembolso.html">Política de Reembolso</a></li>
+            <li><a href="gestion-datos.html">Gestión de Datos y Backups</a></li>
+        </ul>
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <hr>
+    
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin-top: 20px;">
+        <h3 style="color: #333; margin-top: 0;">📋 Declaración de Aceptación</h3>
+        <p style="font-size: 0.85em; color: #666;">
+            Al descargar, instalar o usar GrapePrest, declaras que:
+        </p>
+        <ul style="font-size: 0.85em; color: #666;">
+            <li>✅ Has leído estos Términos y Condiciones completamente</li>
+            <li>✅ Comprendes y aceptas todas las cláusulas, limitaciones y responsabilidades</li>
+            <li>✅ Entiendes que GrapePrest almacena datos localmente en tu dispositivo</li>
+            <li>✅ Eres responsable de la seguridad de tu dispositivo y backups de datos</li>
+            <li>✅ Aceptas usar la app solo para fines legales y éticos</li>
+            <li>✅ Tienes capacidad legal para aceptar este acuerdo (mayor de 18 años)</li>
+        </ul>
+    </div>
+
+    <p style="text-align: center; color: #888; font-size: 11px; margin-top: 25px; line-height: 1.5;">
+        © 2025 GRAPE CONSULTING SRL - Todos los derechos reservados<br>
+        RNC: 133-24041-6 | Santo Domingo, República Dominicana<br><br>
+        <strong>Términos y Condiciones - Versión 2.0</strong><br>
+        Última actualización: 14 de enero de 2025
+    </p>
+</body>
+</html>
