@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Política de Reembolso - GrapePrest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+            color: #333;
+            background: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1 {
+            color: #F80145;
+            border-bottom: 3px solid #F80145;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: clamp(22px, 6vw, 32px);
+        }
+
+        h2 {
+            color: #478935;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: clamp(18px, 5vw, 24px);
+        }
+
+        h3 {
+            color: #1976D2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: clamp(16px, 4vw, 20px);
+        }
+
+        h4 {
+            color: #555;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: clamp(14px, 3.5vw, 16px);
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+
+        .last-update {
+            background: #f0f0f0;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .google-notice {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .refund-box {
+            background: #e3f2fd;
+            border-left: 4px solid #1976D2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .no-refund-box {
+            background: #ffebee;
+            border-left: 4px solid #F80145;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #478935;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .contact-box {
+            background: #e8f5e9;
+            padding: 20px;
+            border-left: 4px solid #478935;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        /* Optimización de tablas para móvil */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: clamp(11px, 3vw, 14px);
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table th {
+            background: #478935;
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background: white;
+        }
+
+        table tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        /* Tablas apiladas en móvil */
+        @media (max-width: 768px) {
+            table {
+                font-size: 11px;
+            }
+
+            table th,
+            table td {
+                padding: 6px 4px;
+                min-width: 100px;
+            }
+
+            /* Versión apilada para tablas complejas */
+            .stacked-table {
+                display: block;
+            }
+
+            .stacked-table thead {
+                display: none;
+            }
+
+            .stacked-table tr {
+                display: block;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background: white;
+            }
+
+            .stacked-table td {
+                display: block;
+                text-align: right;
+                border: none;
+                border-bottom: 1px solid #eee;
+                padding: 8px;
+            }
+
+            .stacked-table td:last-child {
+                border-bottom: none;
+            }
+
+            .stacked-table td::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                color: #478935;
+            }
+        }
+
+        .official-email {
+            background: #e3f2fd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            word-break: break-word;
+            display: inline-block;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #1976D2;
+            text-decoration: none;
+            word-wrap: break-word;
+        }
+
+        a:active {
+            opacity: 0.7;
+        }
+
+        @media (min-width: 769px) {
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+        hr {
+            margin: 25px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Optimización de contenido */
+        .content-section {
+            contain: layout style paint;
+        }
+
+        /* Estilos responsive adicionales */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .google-notice,
+            .refund-box,
+            .no-refund-box,
+            .warning-box,
+            .success-box,
+            .contact-box {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            h1 {
+                margin-bottom: 15px;
+            }
+
+            h2 {
+                margin-top: 25px;
+                margin-bottom: 12px;
+            }
+
+            h3 {
+                margin-top: 15px;
+                margin-bottom: 8px;
+            }
+
+            ul, ol {
+                margin-left: 15px;
+            }
+        }
+
+        /* Optimización para reducir motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Estilos de impresión */
+        @media print {
+            body {
+                max-width: 100%;
+                background: white;
+            }
+
+            .google-notice,
+            .refund-box,
+            .no-refund-box,
+            .warning-box,
+            .success-box {
+                border: 1px solid #999;
+                page-break-inside: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🛡️ Política de Reembolso</h1>
+    
+    <div class="last-update">
+        <strong>Última actualización:</strong> 25 de febrero de 2025<br>
+        <strong>Versión:</strong> 3.0 - Alineada con Google Play
+    </div>
+
+    <div class="google-notice">
+        <h3>⚠️ AVISO IMPORTANTE SOBRE REEMBOLSOS</h3>
+        <p>
+            GrapePrest se distribuye exclusivamente a través de <strong>Google Play</strong>. 
+            Todos los pagos son procesados por Google, quien tiene la <strong>decisión final</strong> 
+            sobre la aprobación o rechazo de reembolsos según sus propias políticas.
+        </p>
+        <p>
+            Esta política complementa (no reemplaza) las 
+            <a href="https://support.google.com/googleplay/answer/2479637" target="_blank">
+                Políticas de Reembolso de Google Play
+            </a>. En caso de conflicto, prevalecen las políticas de Google Play.
+        </p>
+    </div>
+
+    <p>
+        En <strong>GRAPE CONSULTING SRL</strong> nos esforzamos por ofrecer un servicio de calidad 
+        con <strong>GrapePrest</strong>. Esta política establece nuestras condiciones de reembolso 
+        en coordinación con Google Play.
+    </p>
+
+    <!-- SECCIÓN 1 -->
+    <div class="content-section">
+        <h2>1. Sistema de Reembolso de Google Play</h2>
+
+        <div class="refund-box">
+            <h3>⏰ Reembolso Automático (2 Horas)</h3>
+            <p>
+                <strong>Google Play</strong> permite solicitar reembolso automático dentro de las 
+                <strong>primeras 2 horas</strong> de cualquier compra:
+            </p>
+            <ol>
+                <li>Abre <strong>Google Play Store</strong> en tu dispositivo</li>
+                <li>Toca tu foto de perfil → <strong>Pagos y suscripciones</strong> → <strong>Presupuesto e historial</strong></li>
+                <li>Encuentra la compra de GrapePrest</li>
+                <li>Toca <strong>"Solicitar reembolso"</strong> o <strong>"Reportar un problema"</strong></li>
+                <li>Selecciona el motivo y sigue las instrucciones</li>
+            </ol>
+            <p>
+                <strong>Este proceso es automático e instantáneo.</strong> Google decide sin nuestra participación. 
+                Si aprueba, recibirás el reembolso en 3-5 días hábiles.
+            </p>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ Importante sobre el Reembolso de 2 Horas</h3>
+            <ul>
+                <li>El botón de reembolso <strong>desaparece después de 2 horas</strong></li>
+                <li>Solo está disponible en compras nuevas (no renovaciones automáticas)</li>
+                <li>Google evalúa tu historial de reembolsos para aprobar/rechazar</li>
+                <li>Abuso del sistema puede resultar en bloqueo de reembolsos futuros</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 2 -->
+    <div class="content-section">
+        <h2>2. Solicitud de Reembolso Después de 2 Horas</h2>
+
+        <p>
+            Después de las primeras 2 horas, los reembolsos deben solicitarse a través de nosotros, 
+            pero <strong>siguen siendo procesados y aprobados por Google Play</strong>.
+        </p>
+
+        <h3>📧 Proceso de Solicitud:</h3>
+        <ol>
+            <li>Envía un email a: <span class="official-email">grapesoporte@gmail.com</span></li>
+            <li><strong>Asunto:</strong> "Solicitud de Reembolso - GrapePrest - [Tu Nombre]"</li>
+            <li>Incluye la información requerida (ver más abajo)</li>
+            <li>Espera nuestra evaluación en <strong>24-48 horas hábiles</strong></li>
+        </ol>
+
+        <div class="refund-box">
+            <h3>📋 Información Obligatoria para Solicitar Reembolso:</h3>
+            <ul>
+                <li>✅ <strong>Order ID de Google Play</strong> (formato: GPA.XXXX-XXXX-XXXX-XXXXX)</li>
+                <li>✅ <strong>Email de la cuenta Google</strong> utilizada en la compra</li>
+                <li>✅ <strong>Fecha y hora de compra</strong></li>
+                <li>✅ <strong>Monto pagado</strong> y moneda</li>
+                <li>✅ <strong>Motivo del reembolso</strong> (descripción clara del problema)</li>
+                <li>✅ <strong>Evidencia</strong> (si aplica): capturas de pantalla, videos de errores, etc.</li>
+            </ul>
+            <p><em>Solicitudes incompletas retrasarán el proceso de evaluación.</em></p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 3 -->
+    <div class="content-section">
+        <h2>3. Casos que Califican para Reembolso</h2>
+
+        <p>
+            Evaluaremos favorablemente y <strong>recomendaremos a Google Play</strong> aprobar 
+            reembolsos en los siguientes casos:
+        </p>
+
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Situación</th>
+                    <th>Plazo Máximo</th>
+                    <th>Requisitos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Situación"><strong>Insatisfacción general</strong></td>
+                    <td data-label="Plazo Máximo">48 horas desde compra</td>
+                    <td data-label="Requisitos">
+                        • Primera suscripción<br>
+                        • Motivo claro explicado<br>
+                        • Sin abuso evidente del servicio
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Situación"><strong>Cobro duplicado</strong></td>
+                    <td data-label="Plazo Máximo">30 días desde cargo</td>
+                    <td data-label="Requisitos">
+                        • Estado de cuenta bancario mostrando doble cargo<br>
+                        • Dos Order IDs diferentes en Google Play
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Situación"><strong>Error técnico grave</strong></td>
+                    <td data-label="Plazo Máximo">15 días desde compra</td>
+                    <td data-label="Requisitos">
+                        • App crashea constantemente<br>
+                        • Funcionalidad clave no funciona<br>
+                        • Reportado a soporte con evidencia<br>
+                        • Sin solución después de 3 días hábiles
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Situación"><strong>Renovación no deseada por bug</strong></td>
+                    <td data-label="Plazo Máximo">15 días desde renovación</td>
+                    <td data-label="Requisitos">
+                        • Email de confirmación de cancelación de Google<br>
+                        • Fecha de cancelación anterior a renovación<br>
+                        • Verificación en sistema de Google
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Situación"><strong>Compra accidental</strong></td>
+                    <td data-label="Plazo Máximo">48 horas desde compra</td>
+                    <td data-label="Requisitos">
+                        • Compra realizada por error<br>
+                        • Sin uso significativo de la app<br>
+                        • Reporte inmediato
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Situación"><strong>Incompatibilidad técnica</strong></td>
+                    <td data-label="Plazo Máximo">7 días desde compra</td>
+                    <td data-label="Requisitos">
+                        • Dispositivo cumple requisitos mínimos<br>
+                        • App no funciona en absoluto<br>
+                        • Logs o capturas de error<br>
+                        • Sistema operativo sin modificar (no root)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <h3>⚠️ Nota Importante</h3>
+            <p>
+                Nuestra recomendación favorable <strong>NO garantiza</strong> que Google apruebe el reembolso. 
+                Google tiene sus propios criterios basados en:
+            </p>
+            <ul>
+                <li>Tu historial de reembolsos en Google Play</li>
+                <li>Políticas de protección al consumidor de tu país</li>
+                <li>Uso del servicio antes de solicitar reembolso</li>
+                <li>Motivo declarado vs. patrones de uso detectados</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 4 -->
+    <div class="content-section">
+        <h2>4. Casos que NO Califican para Reembolso</h2>
+
+        <div class="no-refund-box">
+            <h3>❌ Google Play Generalmente NO Aprueba Reembolsos en Estos Casos:</h3>
+            
+            <h4>Cambios de Opinión:</h4>
+            <ul>
+                <li>Solicitud después de 48 horas por simple cambio de opinión</li>
+                <li>Preferencia por aplicación de la competencia</li>
+                <li>"Ya no lo necesito" después de uso activo</li>
+                <li>Decisión de volver al plan gratuito</li>
+            </ul>
+
+            <h4>Problemas del Usuario:</h4>
+            <ul>
+                <li>Olvidó cancelar antes de renovación automática</li>
+                <li>Falta de tiempo para usar la aplicación</li>
+                <li>Pérdida de datos por no realizar backup</li>
+                <li>Problemas de conexión a internet del usuario</li>
+                <li>Dispositivo que no cumple requisitos mínimos declarados</li>
+                <li>Sistema operativo modificado (root/jailbreak)</li>
+            </ul>
+
+            <h4>Uso Abusivo:</h4>
+            <ul>
+                <li>Uso comercial intensivo seguido de solicitud de reembolso</li>
+                <li>Múltiples reembolsos en corto período</li>
+                <li>Patrón de compra-uso-reembolso repetido</li>
+                <li>Información falsa en la solicitud</li>
+                <li>Violación de Términos y Condiciones</li>
+            </ul>
+
+            <h4>Fuera de Plazo:</h4>
+            <ul>
+                <li>Solicitud después de los plazos establecidos sin causa técnica válida</li>
+                <li>Reembolso de renovaciones después de meses de uso</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 5 -->
+    <div class="content-section">
+        <h2>5. Nuestra Garantía de Satisfacción (48 Horas)</h2>
+
+        <div class="success-box">
+            <h3>✅ Compromiso de GrapePrest</h3>
+            <p>
+                Si NO estás satisfecho con GrapePrest Premium, tienes <strong>48 horas</strong> desde 
+                la compra para solicitar reembolso sin necesidad de justificación extensa.
+            </p>
+            
+            <p><strong>Condiciones:</strong></p>
+            <ul>
+                <li>Solicitud dentro de las <strong>primeras 48 horas</strong> de compra</li>
+                <li><strong>Primera suscripción</strong> (no renovaciones, salvo error técnico)</li>
+                <li>Uso razonable del servicio (no abuso evidente)</li>
+                <li>Sin violación de Términos y Condiciones</li>
+            </ul>
+
+            <p><strong>Proceso:</strong></p>
+            <ol>
+                <li>Envía email a <span class="official-email">grapesoporte@gmail.com</span></li>
+                <li>Incluye tu Order ID y motivo básico</li>
+                <li>Evaluamos en <strong>24 horas</strong></li>
+                <li><strong>Recomendamos aprobación</strong> a Google Play</li>
+                <li>Google procesa el reembolso si aprueba (3-5 días)</li>
+            </ol>
+        </div>
+
+        <div class="warning-box">
+            <h3>📊 Uso Razonable Durante las 48 Horas</h3>
+            <p>
+                Google Play considera "uso razonable de evaluación" cuando el usuario prueba 
+                las funciones para determinar si el servicio le conviene. NO se considera razonable:
+            </p>
+            <ul>
+                <li>Importar cientos de clientes reales de un negocio existente</li>
+                <li>Crear decenas de préstamos con datos reales y montos grandes</li>
+                <li>Exportar masivamente información generada</li>
+                <li>Uso comercial real del servicio por 47 horas seguido de reembolso</li>
+            </ul>
+            <p>
+                <strong>Google detecta estos patrones automáticamente</strong> y puede rechazar 
+                reembolsos que muestren abuso evidente, incluso con nuestra recomendación favorable.
+            </p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 6 -->
+    <div class="content-section">
+        <h2>6. Reembolsos por Problemas Técnicos</h2>
+
+        <p>
+            Si experimentas errores que impiden usar GrapePrest, sigue este proceso <strong>ANTES</strong> 
+            de solicitar reembolso:
+        </p>
+
+        <h3>📞 Proceso de Soporte Técnico:</h3>
+        <ol>
+            <li><strong>Contacta a soporte:</strong> <span class="official-email">grapesoporte@gmail.com</span></li>
+            <li>
+                <strong>Proporciona información técnica:</strong>
+                <ul>
+                    <li>Modelo y marca de dispositivo</li>
+                    <li>Versión de Android</li>
+                    <li>Versión de GrapePrest instalada</li>
+                    <li>Descripción detallada del error</li>
+                    <li>Capturas de pantalla o videos del problema</li>
+                </ul>
+            </li>
+            <li><strong>Espera nuestra respuesta:</strong> Máximo 48 horas hábiles</li>
+            <li><strong>Prueba las soluciones sugeridas:</strong> Sigue nuestras instrucciones</li>
+            <li><strong>Si el problema persiste:</strong> Calificas para reembolso después de 3 días hábiles sin solución</li>
+        </ol>
+
+        <div class="success-box">
+            <h3>✅ Nuestro Compromiso</h3>
+            <p>
+                Si reportas un error técnico legítimo y no podemos resolverlo en <strong>3 días hábiles</strong>, 
+                recomendaremos reembolso completo a Google Play, independientemente del tiempo transcurrido 
+                (hasta 30 días desde la compra).
+            </p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 7 -->
+    <div class="content-section">
+        <h2>7. Cancelación de Suscripción (Sin Reembolso)</h2>
+
+        <p>Puedes cancelar tu suscripción en cualquier momento para evitar renovaciones futuras:</p>
+
+        <h3>Cómo Cancelar:</h3>
+        <ol>
+            <li>Abre <strong>Google Play Store</strong></li>
+            <li>Toca tu <strong>foto de perfil</strong> → <strong>Pagos y suscripciones</strong> → <strong>Suscripciones</strong></li>
+            <li>Selecciona <strong>GrapePrest</strong></li>
+            <li>Toca <strong>"Cancelar suscripción"</strong></li>
+            <li>Confirma la cancelación</li>
+        </ol>
+
+        <div class="refund-box">
+            <h3>✅ Qué Sucede al Cancelar:</h3>
+            <ul>
+                <li><strong>Mantienes acceso Premium</strong> hasta el final del período ya pagado</li>
+                <li><strong>No se cobran renovaciones</strong> futuras</li>
+                <li>Recibes <strong>email de confirmación</strong> de Google Play</li>
+                <li>Tus <strong>datos permanecen</strong> en la app</li>
+                <li>Puedes <strong>reactivar</strong> la suscripción cuando quieras</li>
+            </ul>
+        </div>
+
+        <div class="no-refund-box">
+            <h3>❌ Lo que NO Incluye la Cancelación:</h3>
+            <ul>
+                <li><strong>NO hay reembolso</strong> por tiempo no utilizado</li>
+                <li><strong>NO se extiende</strong> el período pagado</li>
+                <li><strong>NO hay crédito</strong> para futuras compras</li>
+            </ul>
+            <p>
+                <strong>Esto es estándar en servicios de suscripción digital</strong> y está alineado 
+                con las políticas de Google Play.
+            </p>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ Renovaciones Automáticas</h3>
+            <p>
+                Todas las suscripciones en Google Play son <strong>renovadas automáticamente</strong> 
+                al final de cada período (mensual o anual) a menos que canceles manualmente.
+            </p>
+            <p><strong>Google Play te recuerda esto:</strong></p>
+            <ul>
+                <li>Al momento de comprar (pantalla de confirmación)</li>
+                <li>En el email de confirmación de compra</li>
+                <li>3 días antes de cada renovación (email de recordatorio)</li>
+            </ul>
+            <p>
+                <strong>"Olvidé cancelar"</strong> generalmente NO califica para reembolso según 
+                las políticas de Google Play, ya que la renovación automática está claramente informada.
+            </p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 8 -->
+    <div class="content-section">
+        <h2>8. Tiempos de Procesamiento de Reembolsos</h2>
+
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Etapa</th>
+                    <th>Tiempo Estimado</th>
+                    <th>Responsable</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Etapa">Confirmación de recepción de solicitud</td>
+                    <td data-label="Tiempo Estimado">2 horas hábiles</td>
+                    <td data-label="Responsable">GRAPE CONSULTING</td>
+                </tr>
+                <tr>
+                    <td data-label="Etapa">Evaluación de la solicitud</td>
+                    <td data-label="Tiempo Estimado">24-48 horas hábiles</td>
+                    <td data-label="Responsable">GRAPE CONSULTING</td>
+                </tr>
+                <tr>
+                    <td data-label="Etapa">Recomendación a Google Play</td>
+                    <td data-label="Tiempo Estimado">1-2 días hábiles</td>
+                    <td data-label="Responsable">GRAPE CONSULTING</td>
+                </tr>
+                <tr>
+                    <td data-label="Etapa">Decisión final de Google</td>
+                    <td data-label="Tiempo Estimado">1-3 días hábiles</td>
+                    <td data-label="Responsable">GOOGLE PLAY</td>
+                </tr>
+                <tr>
+                    <td data-label="Etapa">Procesamiento del reembolso</td>
+                    <td data-label="Tiempo Estimado">3-5 días hábiles</td>
+                    <td data-label="Responsable">GOOGLE PLAY</td>
+                </tr>
+                <tr>
+                    <td data-label="Etapa">Reflejo en cuenta bancaria</td>
+                    <td data-label="Tiempo Estimado">3-10 días hábiles</td>
+                    <td data-label="Responsable">TU BANCO</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Tiempo total estimado:</strong> 7-25 días hábiles desde la solicitud inicial</p>
+
+        <div class="warning-box">
+            <h3>⏱️ Factores que Afectan los Tiempos</h3>
+            <ul>
+                <li>Solicitudes incompletas (requieren información adicional)</li>
+                <li>Días festivos en República Dominicana (GRAPE CONSULTING)</li>
+                <li>Volumen de solicitudes en Google Play</li>
+                <li>Tipo de tarjeta o método de pago utilizado</li>
+                <li>Políticas de procesamiento de tu banco</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 9 -->
+    <div class="content-section">
+        <h2>9. Conversión de Moneda y Comisiones</h2>
+
+        <div class="warning-box">
+            <h3>💱 Información sobre Precios y Conversiones</h3>
+            <p>
+                GrapePrest se ofrece en <strong>dólares estadounidenses (USD)</strong>. Si te encuentras 
+                en otro país, Google Play convierte automáticamente a tu moneda local al momento de compra.
+            </p>
+            
+            <p><strong>Tasas de Cambio:</strong></p>
+            <ul>
+                <li><strong>Compra:</strong> Google aplica su tasa vigente al momento de la transacción</li>
+                <li><strong>Reembolso:</strong> Google puede aplicar una tasa diferente al momento del reembolso</li>
+                <li><strong>Diferencia:</strong> Las fluctuaciones cambiarias pueden resultar en montos diferentes</li>
+            </ul>
+
+            <p><strong>Comisiones Bancarias:</strong></p>
+            <ul>
+                <li>Tu banco puede cobrar comisión por conversión internacional</li>
+                <li>Google Play no controla estas comisiones</li>
+                <li>GRAPE CONSULTING SRL no es responsable de comisiones bancarias</li>
+                <li>Estas comisiones <strong>NO son reembolsables</strong></li>
+            </ul>
+
+            <p><strong>Ejemplo:</strong></p>
+            <ul>
+                <li>Precio: $3.99 USD</li>
+                <li>Compra en RD$: ~240 RD$ (tasa del día + comisión banco)</li>
+                <li>Reembolso en RD$: ~235 RD$ (tasa diferente del día)</li>
+                <li>Diferencia: ~5 RD$ (NO responsabilidad de GRAPE CONSULTING ni Google)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 10 -->
+    <div class="content-section">
+        <h2>10. Derechos del Consumidor según tu Ubicación</h2>
+
+        <h3>🇪🇺 Espacio Económico Europeo y Reino Unido</h3>
+        <div class="success-box">
+            <p>
+                Si te encuentras en la UE/EEA o UK, tienes <strong>derecho de retracto de 14 días</strong> 
+                para contenido digital según la Directiva 2011/83/UE.
+            </p>
+            <p><strong>Sin embargo:</strong></p>
+            <ul>
+                <li>Al activar tu suscripción, Google te solicita <strong>renunciar a este derecho</strong></li>
+                <li>Esto te permite <strong>acceso inmediato</strong> a las funciones Premium</li>
+                <li>Si aceptas acceso inmediato, <strong>pierdes</strong> el derecho de retracto automático</li>
+                <li>Aún puedes solicitar reembolso bajo nuestras políticas (48 horas, problemas técnicos, etc.)</li>
+            </ul>
+            <p>
+                <strong>Más información:</strong> 
+                <a href="https://support.google.com/googleplay/answer/2851610" target="_blank">
+                    Políticas de Google Play para la UE
+                </a>
+            </p>
+        </div>
+
+        <h3>🌎 América Latina</h3>
+        <div class="refund-box">
+            <p>Respetamos las leyes de protección al consumidor de cada país:</p>
+            <ul>
+                <li><strong>República Dominicana:</strong> Ley 358-05 (Pro Consumidor)</li>
+                <li><strong>México:</strong> Ley Federal de Protección al Consumidor (PROFECO)</li>
+                <li><strong>Colombia:</strong> Ley 1480 de 2011 (SIC)</li>
+                <li><strong>Argentina:</strong> Ley 24.240 de Defensa del Consumidor</li>
+                <li><strong>Chile:</strong> Ley 19.496 (SERNAC)</li>
+                <li><strong>Perú:</strong> Código de Protección al Consumidor (INDECOPI)</li>
+            </ul>
+            <p>
+                Esta política <strong>complementa</strong> (no reemplaza) tus derechos legales. 
+                En caso de conflicto, prevalecen las leyes locales imperativas.
+            </p>
+        </div>
+
+        <h3>⚖️ Orden de Precedencia Legal:</h3>
+        <ol>
+            <li><strong>Leyes imperativas locales</strong> de protección al consumidor</li>
+            <li><strong>Políticas de Google Play</strong> como procesador de pagos</li>
+            <li><strong>Esta Política de Reembolso</strong></li>
+            <li><strong>Términos y Condiciones</strong> de GrapePrest</li>
+        </ol>
+    </div>
+
+    <!-- SECCIÓN 11 -->
+    <div class="content-section">
+        <h2>11. Prevención de Abuso del Sistema de Reembolsos</h2>
+
+        <p>
+            Tanto Google Play como GRAPE CONSULTING SRL monitoreamos patrones de uso para detectar 
+            abuso del sistema de reembolsos.
+        </p>
+
+        <div class="no-refund-box">
+            <h3>🚨 Comportamientos Considerados Abusivos</h3>
+            <ul>
+                <li>Múltiples compras y reembolsos en corto período</li>
+                <li>Uso comercial intensivo seguido de solicitud inmediata de reembolso</li>
+                <li>Exportación masiva de datos antes de solicitar reembolso</li>
+                <li>Información falsa o contradictoria en solicitudes</li>
+                <li>Múltiples cuentas de Google para obtener "pruebas gratuitas" repetidas</li>
+                <li>Patrón de reembolsos en múltiples aplicaciones</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ Consecuencias del Abuso Detectado</h3>
+            <p><strong>Por parte de Google Play:</strong></p>
+            <ul>
+                <li>Rechazo automático de solicitudes de reembolso</li>
+                <li>Restricción de compras futuras</li>
+                <li>Suspensión de privilegios de reembolso</li>
+                <li>Posible suspensión de cuenta de Google</li>
+            </ul>
+
+            <p><strong>Por parte de GRAPE CONSULTING SRL:</strong></p>
+            <ul>
+                <li>Rechazo de solicitud con justificación detallada</li>
+                <li>Bloqueo permanente de acceso a GrapePrest</li>
+                <li>Reporte formal a Google Play</li>
+                <li>Posibles acciones legales en casos graves</li>
+            </ul>
+        </div>
+
+        <div class="success-box">
+            <h3>✅ Uso Legítimo vs. Abuso</h3>
+            <p><strong>USO LEGÍTIMO (Reembolso aprobado):</strong></p>
+            <ul>
+                <li>Pruebas de funcionalidad con datos de ejemplo</li>
+                <li>Creación de 5-10 registros de prueba para evaluar</li>
+                <li>Generación de reportes de demostración</li>
+                <li>Decisión informada de que el servicio no cumple expectativas</li>
+            </ul>
+
+            <p><strong>ABUSO EVIDENTE (Reembolso rechazado):</strong></p>
+            <ul>
+                <li>Importar lista completa de clientes reales (100+)</li>
+                <li>Crear préstamos reales por miles de dólares</li>
+                <li>Enviar mensajes WhatsApp masivos a clientes</li>
+                <li>Exportar toda la información generada</li>
+                <li>Usar la app comercialmente por 47 horas y solicitar reembolso</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 12 -->
+    <div class="content-section">
+        <h2>12. Modificaciones a esta Política</h2>
+
+        <ul>
+            <li>Podemos actualizar esta política para reflejar cambios en leyes, servicios o políticas de Google Play</li>
+            <li>Cambios se publicarán en esta página con nueva fecha de actualización</li>
+            <li><strong>Cambios aplican solo a compras futuras</strong>, no a suscripciones activas</li>
+            <li>Cambios sustanciales serán notificados en la app</li>
+        </ul>
+
+        <p><strong>Historial de Versiones:</strong></p>
+        <ul>
+            <li>v3.0 (25 febrero 2025) - Alineada con políticas de Google Play</li>
+            <li>v2.0 (14 enero 2025) - Política reforzada</li>
+            <li>v1.0 (1 enero 2025) - Versión inicial</li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 13 -->
+    <div class="contact-box">
+        <h2>13. Contacto para Reembolsos y Soporte</h2>
+        
+        <p><strong>Empresa:</strong> GRAPE CONSULTING SRL</p>
+        <p><strong>RNC:</strong> 133-24041-6</p>
+        <p><strong>Ubicación:</strong> Santo Domingo, República Dominicana</p>
+        
+        <hr>
+        
+        <h3>📧 Email de Soporte:</h3>
+        <p style="font-size: 1.1em;">
+            <a href="mailto:grapesoporte@gmail.com" class="official-email">
+                grapesoporte@gmail.com
+            </a>
+        </p>
+        
+        <h3>📋 Formato de Solicitud:</h3>
+        <p><strong>Asunto:</strong> "Solicitud de Reembolso - GrapePrest - [Tu Nombre]"</p>
+        
+        <p><strong>Información requerida en el email:</strong></p>
+        <ul>
+            <li>✅ Order ID de Google Play</li>
+            <li>✅ Email de cuenta Google</li>
+            <li>✅ Fecha y hora de compra</li>
+            <li>✅ Monto y moneda</li>
+            <li>✅ Motivo del reembolso</li>
+            <li>✅ Evidencia (si aplica)</li>
+        </ul>
+
+        <h3>⏱️ Tiempos de Respuesta:</h3>
+        <ul>
+            <li>Confirmación de recepción: <strong>2 horas hábiles</strong></li>
+            <li>Evaluación y respuesta: <strong>24-48 horas hábiles</strong></li>
+            <li>Horario: Lunes a Viernes, 9:00 AM - 6:00 PM (GMT-4, hora RD)</li>
+        </ul>
+
+        <hr>
+
+        <h3>🔗 Recursos Adicionales:</h3>
+        <ul>
+            <li>
+                <strong>Centro de Ayuda de Google Play:</strong>
+                <a href="https://support.google.com/googleplay#topic=3364260" target="_blank">
+                    support.google.com/googleplay
+                </a>
+            </li>
+            <li>
+                <strong>Políticas de Reembolso de Google Play:</strong>
+                <a href="https://support.google.com/googleplay/answer/2479637" target="_blank">
+                    Ver políticas oficiales
+                </a>
+            </li>
+            <li>
+                <strong>Solicitar reembolso directamente a Google:</strong>
+                <a href="https://support.google.com/googleplay/answer/7205930" target="_blank">
+                    Ver instrucciones
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <hr>
+    
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin-top: 20px;">
+        <h3 style="color: #333; margin-top: 0;">📜 Declaración Legal</h3>
+        <p style="font-size: 0.85em; color: #666;">
+            Esta Política de Reembolso constituye un acuerdo legalmente vinculante entre el usuario 
+            ("usted") y GRAPE CONSULTING SRL ("nosotros"). Al realizar una compra en GrapePrest a 
+            través de Google Play, usted acepta:
+        </p>
+        <ul style="font-size: 0.85em; color: #666;">
+            <li>Los términos de esta Política de Reembolso</li>
+            <li>Las <a href="https://play.google.com/about/play-terms/" target="_blank">Condiciones de Servicio de Google Play</a></li>
+            <li>Las <a href="https://support.google.com/googleplay/answer/2479637" target="_blank">Políticas de Reembolso de Google Play</a></li>
+            <li>Los Términos y Condiciones de GrapePrest</li>
+        </ul>
+        <p style="font-size: 0.85em; color: #666;">
+            En caso de conflicto entre documentos, prevalece el orden establecido en la Sección 10 
+            de esta política. Google Play tiene la decisión final sobre todos los reembolsos procesados 
+            a través de su plataforma.
+        </p>
+    </div>
+
+    <p style="text-align: center; color: #888; font-size: 11px; margin-top: 25px; line-height: 1.5;">
+        © 2025 GRAPE CONSULTING SRL - Todos los derechos reservados<br>
+        RNC: 133-24041-6 | Santo Domingo, República Dominicana<br><br>
+        Versión 3.0 - Última actualización: 25 de febrero de 2025<br>
+        Esta política complementa las 
+        <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" style="color: #1976D2;">
+            Políticas Oficiales de Reembolso de Google Play
+        </a>
+    </p>
+</body>
+</html>
