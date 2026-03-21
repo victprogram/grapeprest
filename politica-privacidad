@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Política de Privacidad - GrapePrest | GRAPE CONSULTING SRL</title>
+    <meta name="description" content="Política de Privacidad de GrapePrest. Tus datos se almacenan localmente en tu dispositivo. TÚ eres el único responsable.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+            color: #333;
+            background: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1 {
+            color: #F80145;
+            border-bottom: 3px solid #F80145;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: clamp(22px, 6vw, 32px);
+        }
+
+        h2 {
+            color: #478935;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: clamp(18px, 5vw, 24px);
+        }
+
+        h3 {
+            color: #1976D2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: clamp(16px, 4vw, 20px);
+        }
+
+        h4 {
+            color: #555;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: clamp(14px, 3.5vw, 16px);
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+
+        .last-update {
+            background: #f0f0f0;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .critical {
+            background: #ffebee;
+            border-left: 4px solid #F80145;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .info {
+            background: #e3f2fd;
+            border-left: 4px solid #1976D2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .success {
+            background: #e8f5e9;
+            border-left: 4px solid #478935;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .legal {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .contact-box {
+            background: #e8f5e9;
+            padding: 20px;
+            border-left: 4px solid #478935;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: clamp(11px, 3vw, 14px);
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table th {
+            background: #478935;
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background: white;
+        }
+
+        table tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        @media (max-width: 768px) {
+            .stacked-table thead {
+                display: none;
+            }
+
+            .stacked-table tr {
+                display: block;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background: white;
+            }
+
+            .stacked-table td {
+                display: block;
+                text-align: right;
+                border: none;
+                border-bottom: 1px solid #eee;
+                padding: 8px;
+            }
+
+            .stacked-table td:last-child {
+                border-bottom: none;
+            }
+
+            .stacked-table td::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                color: #478935;
+            }
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #1976D2;
+            text-decoration: none;
+            word-wrap: break-word;
+        }
+
+        a:active {
+            opacity: 0.7;
+        }
+
+        @media (min-width: 769px) {
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+        hr {
+            margin: 25px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        .red-text {
+            color: #d32f2f;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .official-email {
+            background: #e3f2fd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            word-break: break-word;
+            display: inline-block;
+        }
+
+        .content-section {
+            contain: layout style paint;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .critical, .warning, .info, .success, .legal, .contact-box {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            ul, ol {
+                margin-left: 15px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        @media print {
+            body {
+                max-width: 100%;
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🔒 Política de Privacidad</h1>
+    
+    <div class="last-update">
+        <strong>Última actualización:</strong> 14 de enero de 2025<br>
+        <strong>Versión:</strong> 3.0
+    </div>
+
+    <p>
+        <strong>GRAPE CONSULTING SRL</strong> (RNC: 133-24041-6), con domicilio en Santo Domingo, 
+        República Dominicana, opera la aplicación móvil <strong>GrapePrest</strong>.
+    </p>
+
+    <!-- ==================== AVISO PRINCIPAL ==================== -->
+    <div class="critical">
+        <h3>⚠️ INFORMACIÓN FUNDAMENTAL - LEE ANTES DE USAR</h3>
+        <p class="bold red-text" style="font-size: 1.1em;">
+            GRAPE CONSULTING SRL NO ALMACENA NI MANEJA TUS DATOS
+        </p>
+        <p><strong>GrapePrest funciona de manera 100% LOCAL:</strong></p>
+        <ul>
+            <li>✅ <strong>TODOS tus datos se guardan en TU TELÉFONO</strong>, no en nuestros servidores</li>
+            <li>✅ <strong>NO tenemos acceso</strong> a tu información de clientes, préstamos o reportes</li>
+            <li>✅ <strong>NO creamos cuentas de usuario</strong> ni perfiles en ninguna base de datos</li>
+            <li>✅ <strong>NO podemos ver, leer ni recuperar</strong> tus datos bajo ninguna circunstancia</li>
+            <li>⚠️ <strong>TÚ eres el ÚNICO propietario y responsable</strong> de respaldar tu información</li>
+        </ul>
+        
+        <p style="margin-top: 15px;"><strong>Con Plan Premium:</strong></p>
+        <ul>
+            <li>☁️ <strong>Backup automático:</strong> Tus datos se sincronizan como copia de seguridad en un servidor</li>
+            <li>🔐 <strong>Cifrado AES-256:</strong> Los backups están cifrados, NO podemos leer su contenido</li>
+            <li>⚠️ <strong>TÚ sigues siendo responsable:</strong> El backup es una herramienta, no una garantía</li>
+            <li>🗑️ <strong>Eliminación automática:</strong> Si cancelas Premium o hay 30 días sin actividad, el backup se elimina SIN AVISO</li>
+        </ul>
+    </div>
+
+    <!-- ==================== SECCIÓN 1 ==================== -->
+    <div class="content-section">
+        <h2>1. Identidad del Desarrollador</h2>
+
+        <div class="legal">
+            <p><strong>Desarrollador:</strong> GRAPE CONSULTING SRL</p>
+            <p><strong>RNC:</strong> 133-24041-6</p>
+            <p><strong>Ubicación:</strong> Santo Domingo, República Dominicana</p>
+            <p><strong>Email de Soporte:</strong> <a href="mailto:grapesoporte@gmail.com">grapesoporte@gmail.com</a></p>
+            <p><strong>Email Comercial:</strong> <a href="mailto:servicio.grapeconsulting@gmail.com">servicio.grapeconsulting@gmail.com</a></p>
+            <p><strong>Aplicación:</strong> GrapePrest - Gestión de Préstamos</p>
+        </div>
+
+        <div class="warning">
+            <h4>⚠️ Aclaración Importante</h4>
+            <p>
+                GRAPE CONSULTING SRL es el <strong>desarrollador de la herramienta</strong> GrapePrest, 
+                NO el procesador ni controlador de tus datos.
+            </p>
+            <p>
+                Cuando ingresas información de tus clientes en la app, <strong>TÚ actúas como 
+                "Responsable del Tratamiento"</strong> de esos datos personales según las leyes aplicables.
+            </p>
+            <p class="bold">
+                Nosotros solo proporcionamos la herramienta tecnológica. TÚ decides qué datos 
+                ingresas, cómo los proteges y cómo los respaldas.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 2 ==================== -->
+    <div class="content-section">
+        <h2>2. Modelo de Almacenamiento: 100% Local</h2>
+
+        <h3>2.1 ¿Dónde se Guardan tus Datos?</h3>
+        
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Dato</th>
+                    <th>Ubicación</th>
+                    <th>¿GRAPE CONSULTING tiene acceso?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Datos de tus clientes</strong></td>
+                    <td data-label="Ubicación">Base de datos LOCAL en TU teléfono</td>
+                    <td data-label="¿GRAPE CONSULTING tiene acceso?" class="bold red-text">❌ NO - Nunca</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Préstamos y pagos</strong></td>
+                    <td data-label="Ubicación">Almacenamiento interno LOCAL</td>
+                    <td data-label="¿GRAPE CONSULTING tiene acceso?" class="bold red-text">❌ NO - Nunca</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Reportes</strong></td>
+                    <td data-label="Ubicación">Generados en tiempo real en TU dispositivo</td>
+                    <td data-label="¿GRAPE CONSULTING tiene acceso?" class="bold red-text">❌ NO - Nunca</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Configuración</strong></td>
+                    <td data-label="Ubicación">Preferencias LOCAL en tu teléfono</td>
+                    <td data-label="¿GRAPE CONSULTING tiene acceso?" class="bold red-text">❌ NO - Nunca</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Backup Premium</strong></td>
+                    <td data-label="Ubicación">Servidor de backup (CIFRADO AES-256)</td>
+                    <td data-label="¿GRAPE CONSULTING tiene acceso?" class="bold red-text">❌ NO - Está cifrado</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2.2 ¿Qué Significa Almacenamiento Local?</h3>
+        <div class="info">
+            <p><strong>Almacenamiento local significa que:</strong></p>
+            <ul>
+                <li>📱 Tus datos SOLO existen en tu teléfono</li>
+                <li>🚫 NO hay copia en servidores de GRAPE CONSULTING (excepto backup Premium cifrado)</li>
+                <li>🔐 Solo TÚ puedes ver y acceder a tu información</li>
+                <li>🌐 La app funciona SIN internet (excepto para backup Premium)</li>
+            </ul>
+        </div>
+
+        <h3>2.3 Consecuencias del Modelo Local</h3>
+        <div class="critical">
+            <p class="bold">Por diseño, GRAPE CONSULTING SRL:</p>
+            <ul>
+                <li>❌ <strong>NO PUEDE recuperar</strong> tus datos si desinstalas la app</li>
+                <li>❌ <strong>NO PUEDE recuperar</strong> tus datos si pierdes o dañas tu teléfono</li>
+                <li>❌ <strong>NO PUEDE transferir</strong> datos entre dispositivos (sin backup Premium)</li>
+                <li>❌ <strong>NO PUEDE ver</strong> qué información tienes guardada</li>
+                <li>❌ <strong>NO PUEDE responder</strong> solicitudes de terceros sobre tus datos (no los tenemos)</li>
+            </ul>
+            <p class="bold red-text" style="margin-top: 10px;">
+                TÚ ERES EL ÚNICO RESPONSABLE DE RESPALDAR TU INFORMACIÓN.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 3 ==================== -->
+    <div class="content-section">
+        <h2>3. Backup en la Nube (Solo Plan Premium)</h2>
+
+        <h3>3.1 ¿Qué es el Backup Premium?</h3>
+        <p>
+            Es un servicio <strong>opcional</strong> que permite crear una copia de seguridad 
+            de tus datos en un servidor externo. Esta copia está <strong>cifrada con AES-256</strong>.
+        </p>
+
+        <div class="success">
+            <p><strong>Características del Backup Premium:</strong></p>
+            <ul>
+                <li>🔄 <strong>Sincronización automática:</strong> Cada hora (si hay conexión)</li>
+                <li>🔐 <strong>Cifrado AES-256:</strong> Estándar militar, NADIE puede leer el contenido</li>
+                <li>📥 <strong>Restauración:</strong> Puedes recuperar datos en un nuevo dispositivo</li>
+                <li>🗑️ <strong>Eliminación:</strong> TÚ puedes eliminar el backup cuando quieras</li>
+            </ul>
+        </div>
+
+        <h3>3.2 Responsabilidad del Usuario sobre el Backup</h3>
+        <div class="warning">
+            <p class="bold">Aunque tengas Backup Premium, TÚ sigues siendo responsable porque:</p>
+            <ul>
+                <li>⚠️ Debes verificar regularmente que la sincronización esté activa</li>
+                <li>⚠️ Debes mantener tu suscripción Premium activa</li>
+                <li>⚠️ El backup se elimina si no sincronizas en 30 días</li>
+                <li>⚠️ El backup se elimina si cancelas Premium (después de 30 días)</li>
+                <li>⚠️ Recomendamos tener backups adicionales (exportación PDF/Excel)</li>
+            </ul>
+        </div>
+
+        <h3>3.3 Eliminación Automática del Backup</h3>
+        <div class="critical">
+            <p class="bold red-text">Tu backup se ELIMINARÁ AUTOMÁTICAMENTE y SIN PREVIO AVISO en:</p>
+            <ul>
+                <li>🗑️ <strong>30 días sin sincronización:</strong> Si no usas la app por 30 días</li>
+                <li>🗑️ <strong>30 días después de cancelar Premium:</strong> Si cancelas o no renuevas</li>
+                <li>🗑️ <strong>Eliminación manual:</strong> Si TÚ decides eliminar el backup</li>
+                <li>🗑️ <strong>Violación de Términos:</strong> Si violas nuestros Términos de Uso</li>
+            </ul>
+            <p style="margin-top: 10px;">
+                <strong>¿Por qué no avisamos?</strong> No tenemos tu email ni forma de contactarte. 
+                La app funciona sin registro de cuenta.
+            </p>
+        </div>
+
+        <h3>3.4 ¿Podemos Leer tu Backup?</h3>
+        <div class="success">
+            <p class="bold">❌ NO. Los backups están cifrados con AES-256.</p>
+            <p>
+                Solo TÚ puedes descifrar y acceder al contenido usando tu código de empresa 
+                desde la app. Ni siquiera nuestros técnicos pueden ver qué hay dentro.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 4 ==================== -->
+    <div class="content-section">
+        <h2>4. Información que SÍ Recopilamos (Mínima)</h2>
+
+        <p>
+            Aunque NO tenemos acceso a tus datos de clientes o préstamos, sí recopilamos 
+            información técnica mínima para que la app funcione:
+        </p>
+
+        <h3>4.1 Información Técnica Automática</h3>
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Dato</th>
+                    <th>Propósito</th>
+                    <th>Retención</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Dato"><strong>Modelo de dispositivo</strong></td>
+                    <td data-label="Propósito">Compatibilidad y soporte</td>
+                    <td data-label="Retención">90 días</td>
+                </tr>
+                <tr>
+                    <td data-label="Dato"><strong>Versión de Android</strong></td>
+                    <td data-label="Propósito">Compatibilidad</td>
+                    <td data-label="Retención">90 días</td>
+                </tr>
+                <tr>
+                    <td data-label="Dato"><strong>Versión de GrapePrest</strong></td>
+                    <td data-label="Propósito">Actualizaciones</td>
+                    <td data-label="Retención">90 días</td>
+                </tr>
+                <tr>
+                    <td data-label="Dato"><strong>Errores/Crashlogs</strong></td>
+                    <td data-label="Propósito">Mejorar estabilidad</td>
+                    <td data-label="Retención">90 días</td>
+                </tr>
+                <tr>
+                    <td data-label="Dato"><strong>Fechas de sincronización</strong></td>
+                    <td data-label="Propósito">Gestión de backups Premium</td>
+                    <td data-label="Retención">90 días</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4.2 Información de Compras (Google Play)</h3>
+        <p>
+            Si compras Premium, Google Play nos comparte información de la transacción:
+        </p>
+        <ul>
+            <li>Order ID de Google Play</li>
+            <li>Fecha y hora de compra</li>
+            <li>Monto pagado</li>
+            <li>Estado de la suscripción</li>
+        </ul>
+        <p>
+            <strong>Nota:</strong> NO recibimos datos de tu tarjeta de crédito. 
+            Google Play maneja todo el procesamiento de pagos.
+        </p>
+
+        <h3>4.3 Lo que NUNCA Recopilamos</h3>
+        <div class="success">
+            <ul>
+                <li>❌ Nombres, teléfonos o datos de TUS clientes</li>
+                <li>❌ Montos de préstamos o pagos</li>
+                <li>❌ Contenido de tus reportes</li>
+                <li>❌ Contactos de tu teléfono</li>
+                <li>❌ Mensajes SMS o WhatsApp</li>
+                <li>❌ Historial de llamadas</li>
+                <li>❌ Datos de tarjetas de crédito</li>
+                <li>❌ Contenido de backups (están cifrados)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 5 ==================== -->
+    <div class="content-section">
+        <h2>5. Publicidad (Solo Plan Gratuito)</h2>
+
+        <h3>5.1 Google AdMob</h3>
+        <p>
+            La versión gratuita muestra anuncios mediante <strong>Google AdMob</strong>. 
+            Para mostrar anuncios, AdMob puede recopilar:
+        </p>
+        <ul>
+            <li>Advertising ID de Android</li>
+            <li>Dirección IP</li>
+            <li>Datos del dispositivo</li>
+            <li>Interacciones con anuncios</li>
+        </ul>
+
+        <div class="info">
+            <h4>🛡️ Cómo Limitar Anuncios Personalizados:</h4>
+            <ol>
+                <li>Ve a <strong>Configuración de Android</strong></li>
+                <li>Toca <strong>Google → Anuncios</strong></li>
+                <li>Activa <strong>"Inhabilitar personalización de anuncios"</strong></li>
+            </ol>
+        </div>
+
+        <h3>5.2 Plan Premium = Sin Anuncios</h3>
+        <div class="success">
+            <p>
+                Los usuarios Premium disfrutan de una experiencia <strong>100% libre de anuncios</strong>. 
+                AdMob se desactiva completamente.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 6 ==================== -->
+    <div class="content-section">
+        <h2>6. Compartir Información con Terceros</h2>
+
+        <h3>6.1 Proveedores de Servicios</h3>
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Proveedor</th>
+                    <th>Servicio</th>
+                    <th>Datos Compartidos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Proveedor"><strong>Google Play</strong></td>
+                    <td data-label="Servicio">Pagos y distribución</td>
+                    <td data-label="Datos Compartidos">Order IDs, fechas, montos</td>
+                </tr>
+                <tr>
+                    <td data-label="Proveedor"><strong>Google AdMob</strong></td>
+                    <td data-label="Servicio">Publicidad (plan gratuito)</td>
+                    <td data-label="Datos Compartidos">Advertising ID, IP</td>
+                </tr>
+                <tr>
+                    <td data-label="Proveedor"><strong>Firebase</strong></td>
+                    <td data-label="Servicio">Crashlytics, Analytics</td>
+                    <td data-label="Datos Compartidos">Errores, uso anónimo</td>
+                </tr>
+                <tr>
+                    <td data-label="Proveedor"><strong>Servidor Backup</strong></td>
+                    <td data-label="Servicio">Almacenamiento Premium</td>
+                    <td data-label="Datos Compartidos">Backups CIFRADOS (no leemos)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>6.2 Lo que NO Compartimos</h3>
+        <div class="success">
+            <ul>
+                <li>❌ NO vendemos tu información a nadie</li>
+                <li>❌ NO compartimos datos con empresas de marketing</li>
+                <li>❌ NO compartimos contenido de backups (están cifrados)</li>
+                <li>❌ NO compartimos datos de tus clientes (no los tenemos)</li>
+            </ul>
+        </div>
+
+        <h3>6.3 Obligaciones Legales</h3>
+        <div class="legal">
+            <p>
+                Podemos divulgar información solo si es requerido por orden judicial 
+                de República Dominicana. <strong>Sin embargo</strong>, dado que:
+            </p>
+            <ul>
+                <li>Los datos de tus clientes están en TU teléfono (no los tenemos)</li>
+                <li>Los backups están cifrados (no podemos leerlos)</li>
+            </ul>
+            <p class="bold">
+                En la mayoría de casos, NO PODEMOS proporcionar información aunque 
+                nos lo soliciten, porque simplemente NO TENEMOS ACCESO.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 7 ==================== -->
+    <div class="content-section">
+        <h2>7. Seguridad</h2>
+
+        <h3>7.1 Medidas que Implementamos</h3>
+        <ul>
+            <li>🔒 Cifrado HTTPS/TLS para comunicaciones</li>
+            <li>🔒 Cifrado AES-256 para backups Premium</li>
+            <li>🔒 Servidores seguros con monitoreo 24/7</li>
+            <li>🔒 Acceso restringido a infraestructura</li>
+        </ul>
+
+        <h3>7.2 Tu Responsabilidad de Seguridad</h3>
+        <div class="warning">
+            <p><strong>Para mantener tus datos seguros, TÚ debes:</strong></p>
+            <ul>
+                <li>✅ Usar PIN o contraseña en tu dispositivo Android</li>
+                <li>✅ Activar la contraseña de acceso en GrapePrest</li>
+                <li>✅ No compartir tu teléfono desbloqueado</li>
+                <li>✅ Realizar backups regulares</li>
+                <li>✅ Mantener la app actualizada</li>
+            </ul>
+        </div>
+
+        <h3>7.3 Limitaciones</h3>
+        <div class="critical">
+            <p class="bold">Ningún sistema es 100% seguro. NO podemos protegerte de:</p>
+            <ul>
+                <li>❌ Robo físico de tu teléfono</li>
+                <li>❌ Malware o virus en tu dispositivo</li>
+                <li>❌ Pérdida o daño del teléfono</li>
+                <li>❌ Acceso no autorizado si compartes tu contraseña</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 8 ==================== -->
+    <div class="content-section">
+        <h2>8. Tus Derechos</h2>
+
+        <p>
+            Según la <strong>Ley 172-13</strong> de República Dominicana y regulaciones internacionales, 
+            tienes derecho a:
+        </p>
+
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Derecho</th>
+                    <th>Descripción</th>
+                    <th>Cómo Ejercerlo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Derecho"><strong>Acceso</strong></td>
+                    <td data-label="Descripción">Ver tus datos</td>
+                    <td data-label="Cómo Ejercerlo">Directamente en la app (son tuyos)</td>
+                </tr>
+                <tr>
+                    <td data-label="Derecho"><strong>Rectificación</strong></td>
+                    <td data-label="Descripción">Corregir datos</td>
+                    <td data-label="Cómo Ejercerlo">Directamente en la app</td>
+                </tr>
+                <tr>
+                    <td data-label="Derecho"><strong>Eliminación</strong></td>
+                    <td data-label="Descripción">Borrar todos tus datos</td>
+                    <td data-label="Cómo Ejercerlo">Desinstalar app o usar Configuración</td>
+                </tr>
+                <tr>
+                    <td data-label="Derecho"><strong>Portabilidad</strong></td>
+                    <td data-label="Descripción">Exportar tus datos</td>
+                    <td data-label="Cómo Ejercerlo">Función de exportación PDF/Excel</td>
+                </tr>
+                <tr>
+                    <td data-label="Derecho"><strong>Eliminar Backup</strong></td>
+                    <td data-label="Descripción">Borrar backup de la nube</td>
+                    <td data-label="Cómo Ejercerlo">Configuración → Backup → Eliminar</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info">
+            <p>
+                <strong>Nota:</strong> Como tus datos están en TU teléfono, TÚ tienes control total. 
+                No necesitas pedirnos permiso para acceder, modificar o eliminar tu información.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 9 ==================== -->
+    <div class="content-section">
+        <h2>9. Retención y Eliminación de Datos</h2>
+
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Dato</th>
+                    <th>Retención</th>
+                    <th>Cómo se Elimina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Datos locales</strong></td>
+                    <td data-label="Retención">Hasta que TÚ elimines</td>
+                    <td data-label="Cómo se Elimina">Desinstalar app o borrar desde Configuración</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Backup Premium</strong></td>
+                    <td data-label="Retención">Máx. 30 días sin actividad</td>
+                    <td data-label="Cómo se Elimina">Automático tras 30 días o manual</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Historial compras</strong></td>
+                    <td data-label="Retención">7 años (obligación fiscal)</td>
+                    <td data-label="Cómo se Elimina">Automático al cumplir período</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Logs técnicos</strong></td>
+                    <td data-label="Retención">90 días</td>
+                    <td data-label="Cómo se Elimina">Automático</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>9.1 Cómo Eliminar tu Backup</h3>
+        <div class="info">
+            <ol>
+                <li>Abre GrapePrest</li>
+                <li>Ve a <strong>Menú → Configuración → Backup y Sincronización</strong></li>
+                <li>Toca <strong>"Eliminar backup de la nube"</strong></li>
+                <li>Confirma la eliminación</li>
+            </ol>
+            <p class="bold red-text">⚠️ Esto es IRREVERSIBLE.</p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 10 ==================== -->
+    <div class="content-section">
+        <h2>10. Menores de Edad</h2>
+
+        <div class="critical">
+            <p class="bold red-text">
+                GrapePrest es EXCLUSIVAMENTE para mayores de 18 años.
+            </p>
+            <ul>
+                <li>Es una herramienta de uso comercial/profesional</li>
+                <li>Involucra gestión de información financiera</li>
+                <li>NO recopilamos intencionalmente datos de menores</li>
+                <li>Si descubrimos uso por menores, eliminaremos la información</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 11 ==================== -->
+    <div class="content-section">
+        <h2>11. Cambios a esta Política</h2>
+
+        <ul>
+            <li>Podemos actualizar esta política ocasionalmente</li>
+            <li>Cambios menores: Actualización de fecha</li>
+            <li>Cambios importantes: Notificación en la app con 30 días de anticipación</li>
+            <li>Continuar usando la app después de cambios implica aceptación</li>
+        </ul>
+
+        <p><strong>Historial:</strong></p>
+        <ul>
+            <li>v3.0 (14 enero 2025) - Política actual</li>
+            <li>v2.0 (1 enero 2025) - Actualización</li>
+            <li>v1.0 (diciembre 2024) - Versión inicial</li>
+        </ul>
+    </div>
+
+    <!-- ==================== SECCIÓN 12 ==================== -->
+    <div class="content-section">
+        <h2>12. Ley Aplicable</h2>
+
+        <div class="legal">
+            <p>
+                Esta política se rige por las leyes de <strong>República Dominicana</strong>:
+            </p>
+            <ul>
+                <li>Ley 172-13: Protección de Datos Personales</li>
+                <li>Ley 126-02: Comercio Electrónico</li>
+                <li>Constitución: Artículo 44 (Derecho a la intimidad)</li>
+            </ul>
+            <p>
+                <strong>Jurisdicción:</strong> Santo Domingo, República Dominicana
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 13 - CONTACTO ==================== -->
+    <div class="contact-box">
+        <h2>13. Contacto</h2>
+        
+        <p><strong>GRAPE CONSULTING SRL</strong></p>
+        <p><strong>RNC:</strong> 133-24041-6</p>
+        <p><strong>Ubicación:</strong> Santo Domingo, República Dominicana</p>
+        
+        <hr style="margin: 20px 0;">
+        
+        <h3>📧 Contacto:</h3>
+        <ul>
+            <li>
+                <strong>Soporte Técnico / Privacidad:</strong> 
+                <a href="mailto:grapesoporte@gmail.com" class="official-email">grapesoporte@gmail.com</a>
+            </li>
+            <li>
+                <strong>Asuntos Comerciales:</strong> 
+                <a href="mailto:servicio.grapeconsulting@gmail.com" class="official-email">servicio.grapeconsulting@gmail.com</a>
+            </li>
+        </ul>
+
+        <p><strong>Tiempo de respuesta:</strong> 24-48 horas hábiles (soporte) / 15 días máx. (derechos de privacidad)</p>
+        <p><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM (GMT-4)</p>
+
+        <hr style="margin: 20px 0;">
+
+        <h3>🔗 Enlaces:</h3>
+        <ul>
+            <li><a href="index.html">Página Principal</a></li>
+            <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+            <li><a href="politica-reembolso.html">Política de Reembolso</a></li>
+            <li><a href="gestion-datos.html">Gestión de Datos y Backups</a></li>
+        </ul>
+    </div>
+
+    <!-- ==================== PIE DE PÁGINA ==================== -->
+    <hr>
+    
+    <div style="background: #ffebee; border: 2px solid #F80145; padding: 15px; border-radius: 5px; margin-top: 20px;">
+        <h3 style="color: #d32f2f; margin-top: 0;">⚠️ Declaración de Aceptación</h3>
+        <p style="font-size: 0.85em; color: #333;">
+            Al usar GrapePrest, <strong>declaras y aceptas que:</strong>
+        </p>
+        <ul style="font-size: 0.85em; color: #333;">
+            <li>✅ Has leído y comprendido esta Política de Privacidad</li>
+            <li>✅ Entiendes que tus datos se almacenan <strong>LOCALMENTE en tu teléfono</strong></li>
+            <li>✅ GRAPE CONSULTING SRL <strong>NO tiene acceso</strong> a tus datos</li>
+            <li>✅ <strong>TÚ eres el único responsable</strong> de respaldar tu información</li>
+            <li>✅ El backup Premium es <strong>temporal</strong> y se elimina tras 30 días de inactividad</li>
+            <li>✅ <strong>NO podemos recuperar</strong> datos perdidos por desinstalación o pérdida del dispositivo</li>
+            <li>✅ Tienes al menos <strong>18 años de edad</strong></li>
+            <li>✅ Aceptas anuncios de Google AdMob (plan gratuito)</li>
+        </ul>
+    </div>
+
+    <div style="background: #e8f5e9; border: 2px solid #478935; padding: 15px; border-radius: 5px; margin-top: 15px;">
+        <h3 style="color: #478935; margin-top: 0;">🛡️ Nuestro Compromiso</h3>
+        <ul style="font-size: 0.85em; color: #333;">
+            <li>✅ <strong>NUNCA venderemos</strong> tu información</li>
+            <li>✅ <strong>NUNCA accederemos</strong> al contenido de tus datos o backups cifrados</li>
+            <li>✅ <strong>SIEMPRE cifraremos</strong> los backups con AES-256</li>
+            <li>✅ <strong>SIEMPRE seremos transparentes</strong> sobre nuestras prácticas</li>
+        </ul>
+    </div>
+
+    <p style="text-align: center; color: #888; font-size: 11px; margin-top: 25px; line-height: 1.5;">
+        © 2025 GRAPE CONSULTING SRL - Todos los derechos reservados<br>
+        RNC: 133-24041-6 | Santo Domingo, República Dominicana<br><br>
+        <strong>Política de Privacidad - Versión 3.0</strong><br>
+        Última actualización: 14 de enero de 2025
+    </p>
+</body>
+</html>
