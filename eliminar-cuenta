@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Gestión de Datos y Backups - GrapePrest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1 {
+            color: #F80145;
+            border-bottom: 3px solid #F80145;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: clamp(22px, 6vw, 32px);
+        }
+
+        h2 {
+            color: #478935;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: clamp(18px, 5vw, 24px);
+        }
+
+        h3 {
+            color: #1976D2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: clamp(16px, 4vw, 20px);
+        }
+
+        h4 {
+            color: #555;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: clamp(14px, 3.5vw, 16px);
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .critical {
+            background: #ffebee;
+            border-left: 4px solid #F80145;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .important {
+            background: #fce4ec;
+            border-left: 4px solid #c2185b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .steps {
+            background: #e8f5e9;
+            border-left: 4px solid #478935;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .info {
+            background: #e3f2fd;
+            border-left: 4px solid #1976D2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .legal {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .contact-box {
+            background: #e8f5e9;
+            border-left: 4px solid #478935;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        /* Optimización de tablas para móvil */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: clamp(11px, 3vw, 14px);
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table th {
+            background: #478935;
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background: white;
+        }
+
+        table tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        /* Hacer tablas scrolleables en móvil */
+        @media (max-width: 768px) {
+            table {
+                font-size: 11px;
+            }
+
+            table th,
+            table td {
+                padding: 6px 4px;
+                min-width: 100px;
+            }
+
+            /* Alternativa: tabla apilada en móvil */
+            .stacked-table {
+                display: block;
+            }
+
+            .stacked-table thead {
+                display: none;
+            }
+
+            .stacked-table tr {
+                display: block;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background: white;
+            }
+
+            .stacked-table td {
+                display: block;
+                text-align: right;
+                border: none;
+                border-bottom: 1px solid #eee;
+                padding: 8px;
+            }
+
+            .stacked-table td:last-child {
+                border-bottom: none;
+            }
+
+            .stacked-table td::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                color: #478935;
+            }
+        }
+
+        ol, ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .red-text {
+            color: #d32f2f;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .official-email {
+            background: #e3f2fd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            word-break: break-word;
+            display: inline-block;
+        }
+
+        .email-distinction {
+            background: #fff3cd;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .email-box {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+        }
+
+        .email-box.business {
+            border-color: #1976D2;
+        }
+
+        .email-box.support {
+            border-color: #478935;
+        }
+
+        .email-box h4 {
+            margin-top: 0;
+        }
+
+        .email-box ul {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .email-box li {
+            font-size: 13px;
+            margin: 5px 0;
+        }
+
+        a {
+            color: #1976D2;
+            text-decoration: none;
+            word-wrap: break-word;
+        }
+
+        a:active {
+            opacity: 0.7;
+        }
+
+        @media (min-width: 769px) {
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+        hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Optimización para listas de checkbox */
+        .checkbox-list {
+            list-style: none;
+            margin-left: 10px;
+        }
+
+        .checkbox-list li {
+            padding-left: 5px;
+        }
+
+        /* Estilos responsive adicionales */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .warning,
+            .critical,
+            .important,
+            .steps,
+            .info,
+            .legal,
+            .contact-box {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            h1 {
+                margin-bottom: 15px;
+            }
+
+            h2 {
+                margin-top: 25px;
+                margin-bottom: 12px;
+            }
+
+            h3 {
+                margin-top: 15px;
+                margin-bottom: 8px;
+            }
+
+            ol, ul {
+                margin-left: 15px;
+            }
+
+            .email-box {
+                padding: 10px;
+            }
+        }
+
+        /* Optimización para reducir motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Mejora de rendimiento para scroll largo */
+        .content-section {
+            contain: layout style paint;
+        }
+
+        /* Estilos de impresión optimizados */
+        @media print {
+            body {
+                max-width: 100%;
+                background: white;
+            }
+
+            .warning,
+            .critical,
+            .important,
+            .steps,
+            .info,
+            .legal {
+                border: 1px solid #999;
+                page-break-inside: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 Gestión de Datos y Backups en la Nube</h1>
+    
+    <div class="warning">
+        <p><strong>Última actualización:</strong> 14 de enero de 2025</p>
+        <p><strong>Versión:</strong> 2.0</p>
+    </div>
+
+    <!-- ==================== ADVERTENCIA PRINCIPAL ==================== -->
+    <div class="critical content-section">
+        <h3>⚠️ INFORMACIÓN CRÍTICA - LEE ESTO PRIMERO</h3>
+        <p class="bold red-text" style="font-size: 1.1em;">
+            TÚ ERES EL ÚNICO PROPIETARIO Y RESPONSABLE DE TUS DATOS
+        </p>
+        <p><strong>GrapePrest funciona de manera LOCAL en tu dispositivo:</strong></p>
+        <ul>
+            <li>✅ <strong>Todos tus datos se guardan en TU teléfono</strong> (no en nuestros servidores)</li>
+            <li>✅ <strong>NO creamos cuentas de usuario</strong> ni almacenamos tu información</li>
+            <li>✅ <strong>NO tenemos acceso</strong> a tus clientes, préstamos o reportes</li>
+            <li>✅ <strong>TÚ controlas completamente</strong> tus datos desde tu dispositivo</li>
+            <li>⚠️ <strong>Si pierdes tu teléfono o desinstalas la app</strong>, pierdes todos los datos (a menos que tengas backup)</li>
+        </ul>
+        
+        <p style="margin-top: 15px;"><strong>El único servicio en la nube que ofrecemos:</strong></p>
+        <ul>
+            <li>☁️ <strong>Backup en la nube (Solo Premium):</strong> Copia de seguridad opcional y temporal de tus datos</li>
+            <li>⏰ <strong>Eliminación automática:</strong> Si tu backup no sincroniza por más de 30 días, se elimina AUTOMÁTICAMENTE sin previo aviso para recuperar espacio</li>
+        </ul>
+    </div>
+
+    <!-- ==================== SECCIÓN 1 ==================== -->
+    <div class="content-section">
+        <h2>1. ¿Cómo Funciona GrapePrest?</h2>
+
+        <div class="info">
+            <h3>📱 Modelo de Almacenamiento Local</h3>
+            <p>GrapePrest es una aplicación que funciona <strong>100% en tu dispositivo:</strong></p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Cómo Funciona</th>
+                        <th>Tu Responsabilidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Datos de clientes</strong></td>
+                        <td data-label="Cómo Funciona">Se guardan en una base de datos local en tu teléfono</td>
+                        <td data-label="Tu Responsabilidad">✅ Proteger tu dispositivo con contraseña/PIN</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Préstamos y pagos</strong></td>
+                        <td data-label="Cómo Funciona">Almacenados localmente en la app</td>
+                        <td data-label="Tu Responsabilidad">✅ Hacer backups regulares</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Reportes y estadísticas</strong></td>
+                        <td data-label="Cómo Funciona">Generados en tiempo real desde datos locales</td>
+                        <td data-label="Tu Responsabilidad">✅ Exportar a PDF periódicamente</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Configuraciones</strong></td>
+                        <td data-label="Cómo Funciona">Guardadas en la memoria del dispositivo</td>
+                        <td data-label="Tu Responsabilidad">✅ No compartir tu dispositivo desbloqueado</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Acceso a la app</strong></td>
+                        <td data-label="Cómo Funciona">No requiere internet para funcionar (excepto backup) y ruta por GPS y Mapa</td>
+                        <td data-label="Tu Responsabilidad">✅ Mantener la app actualizada</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ Situaciones que Pueden Causar Pérdida de Datos</h3>
+            <p><strong>Perderás TODOS tus datos si:</strong></p>
+            <ul>
+                <li>❌ Desinstalas la app sin hacer backup previo</li>
+                <li>❌ Formateas tu teléfono (reseteo de fábrica)</li>
+                <li>❌ Tu teléfono se daña, pierde o es robado</li>
+                <li>❌ Eliminas el almacenamiento de la app desde Configuración de Android</li>
+                <li>❌ Actualizas o cambias de teléfono sin exportar datos</li>
+                <li>❌ El sistema operativo borra caché/datos por falta de espacio</li>
+            </ul>
+            <p class="bold red-text">
+                GRAPE CONSULTING SRL NO puede recuperar datos almacenados localmente en tu dispositivo.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 2 ==================== -->
+    <div class="content-section">
+        <h2>2. Backup en la Nube (Servicio Premium Opcional)</h2>
+
+        <div class="info">
+            <h3>☁️ ¿Qué es el Backup en la Nube?</h3>
+            <p>
+                Es un servicio <strong>opcional</strong> disponible solo para usuarios Premium que permite 
+                crear una <strong>copia de seguridad temporal</strong> de tus datos en nuestros servidores.
+            </p>
+            
+            <p><strong>Características importantes:</strong></p>
+            <ul>
+                <li>🔐 <strong>Cifrado AES-256:</strong> Tus datos se cifran antes de subirse</li>
+                <li>🔄 <strong>Sincronización:</strong> Automática (cada 1 hrs) o manual (cuando quieras)</li>
+                <li>📥 <strong>Restauración:</strong> Puedes recuperar datos en caso de cambio de dispositivo</li>
+                <li>⏰ <strong>Temporal:</strong> NO es almacenamiento permanente</li>
+                <li>⚠️ <strong>Solo Premium:</strong> Al cancelar Premium, el backup se elimina en 30 días</li>
+            </ul>
+        </div>
+
+        <h3>🔄 Sincronización del Backup</h3>
+
+        <div class="steps">
+            <p><strong>Cómo funciona la sincronización:</strong></p>
+            
+            <p><strong>Automática (recomendada):</strong></p>
+            <ul>
+                <li>📅 La app sincroniza cada 1 horas automáticamente</li>
+                <li>📶 Requiere conexión a internet (WiFi o datos móviles)</li>
+                <li>🔋 Solo sincroniza si el dispositivo tiene más del 20% de batería</li>
+                <li>⏰ Se ejecuta en segundo plano sin que lo notes</li>
+            </ul>
+
+            <p><strong>Manual:</strong></p>
+            <ol>
+                <li>Abre <strong>GrapePrest</strong></li>
+                <li>Ve a <strong>Menú → Configuración → Backup y Sincronización</strong></li>
+                <li>Toca <strong>"Sincronizar ahora"</strong></li>
+                <li>Espera confirmación (puede tardar 1-2 minutos según cantidad de datos)</li>
+            </ol>
+
+            <p><strong>Verificar última sincronización:</strong></p>
+            <ol>
+                <li>Menú → Configuración → Backup y Sincronización</li>
+                <li>Verás:
+                    <ul>
+                        <li>📅 Última sincronización: Fecha y hora exacta</li>
+                        <li>💾 Tamaño del backup: Cantidad de MB usados</li>
+                        <li>⏰ Días sin sincronizar: Contador de inactividad</li>
+                        <li>⚠️ Advertencia si estás cerca de eliminación automática (día 25+)</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 3 - ELIMINACIÓN AUTOMÁTICA ==================== -->
+    <div class="content-section">
+        <h2>3. Eliminación Automática de Backups (SIN AVISO PREVIO)</h2>
+
+        <div class="critical">
+            <h3>🗑️ POLÍTICA DE ELIMINACIÓN AUTOMÁTICA</h3>
+            <p class="bold red-text" style="font-size: 1.05em;">
+                Tu backup en la nube se ELIMINARÁ AUTOMÁTICAMENTE y SIN PREVIO AVISO en las siguientes situaciones:
+            </p>
+        </div>
+
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Situación</th>
+                    <th>Tiempo Límite</th>
+                    <th>Acción Automática</th>
+                    <th>¿Aviso Previo?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Situación"><strong>Inactividad del backup</strong></td>
+                    <td data-label="Tiempo Límite">30 días sin sincronización</td>
+                    <td data-label="Acción Automática">
+                        • Día 30: Backup eliminado permanentemente<br>
+                        • Espacio liberado en servidores<br>
+                        • Datos locales en tu teléfono NO afectados
+                    </td>
+                    <td data-label="¿Aviso Previo?" class="red-text bold">❌ NO</td>
+                </tr>
+                <tr>
+                    <td data-label="Situación"><strong>Cancelación de Premium</strong></td>
+                    <td data-label="Tiempo Límite">30 días después del vencimiento</td>
+                    <td data-label="Acción Automática">
+                        • Acceso de solo lectura (30 días)<br>
+                        • Día 31: Eliminación permanente<br>
+                        • Recomendación: Exportar antes
+                    </td>
+                    <td data-label="¿Aviso Previo?" class="red-text bold">❌ NO</td>
+                </tr>
+                <tr>
+                    <td data-label="Situación"><strong>Eliminación manual por usuario</strong></td>
+                    <td data-label="Tiempo Límite">Inmediato</td>
+                    <td data-label="Acción Automática">
+                        • Usuario puede eliminar en Configuración<br>
+                        • Confirmación requerida<br>
+                        • Irreversible
+                    </td>
+                    <td data-label="¿Aviso Previo?">✅ Confirmación en app</td>
+                </tr>
+                <tr>
+                    <td data-label="Situación"><strong>Violación de Términos</strong></td>
+                    <td data-label="Tiempo Límite">Inmediato</td>
+                    <td data-label="Acción Automática">
+                        • Backup eliminado sin período de gracia<br>
+                        • Posible bloqueo de futuros backups<br>
+                        • Retención solo si hay investigación legal
+                    </td>
+                    <td data-label="¿Aviso Previo?" class="red-text bold">❌ NO</td>
+                </tr>
+                <tr>
+                    <td data-label="Situación"><strong>Múltiples dispositivos sin actividad</strong></td>
+                    <td data-label="Tiempo Límite">90 días sin ninguna sincronización</td>
+                    <td data-label="Acción Automática">
+                        • Backup considerado abandonado<br>
+                        • Eliminación automática para recuperar espacio
+                    </td>
+                    <td data-label="¿Aviso Previo?" class="red-text bold">❌ NO</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="critical">
+            <h3>⚠️ RAZÓN DE LA ELIMINACIÓN SIN AVISO</h3>
+            <p><strong>¿Por qué no enviamos avisos antes de eliminar?</strong></p>
+            <ul>
+                <li>
+                    📧 <strong>No tenemos tu email:</strong> La app funciona localmente, no requiere registro ni cuenta. 
+                    No almacenamos correos electrónicos ni datos de contacto.
+                </li>
+                <li>
+                    💾 <strong>Gestión de espacio:</strong> Mantenemos servidores eficientes eliminando backups 
+                    inactivos automáticamente.
+                </li>
+                <li>
+                    🔐 <strong>Privacidad:</strong> Al no tener tus datos de contacto, protegemos tu privacidad 
+                    (no hay riesgo de spam o uso indebido de emails).
+                </li>
+                <li>
+                    ⚠️ <strong>Inactividad = Abandono:</strong> Si no sincronizas en 30 días, asumimos que 
+                    dejaste de usar Premium o desinstalaste la app.
+                </li>
+            </ul>
+            <p class="bold red-text">
+                ES TU RESPONSABILIDAD verificar regularmente el estado de tu backup en 
+                Configuración → Backup y Sincronización.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 4 ==================== -->
+    <div class="content-section">
+        <h2>4. Cómo Evitar Pérdida de Datos</h2>
+
+        <div class="steps">
+            <h3>✅ Buenas Prácticas de Seguridad</h3>
+            
+            <p><strong>1. Regla 3-2-1 de Backups (Recomendado):</strong></p>
+            <ul>
+                <li>
+                    <strong>3 copias de tus datos:</strong>
+                    <ul>
+                        <li>1️⃣ Datos originales en la app (local)</li>
+                        <li>2️⃣ Backup en la nube de GrapePrest (Premium)</li>
+                        <li>3️⃣ Exportación manual SQL en tu nube personal</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>2 medios diferentes:</strong> Dispositivo móvil + Nube
+                </li>
+                <li>
+                    <strong>1 copia fuera del ecosistema GrapePrest:</strong> Google Drive, Dropbox, email, USB, etc.
+                </li>
+            </ul>
+
+            <p><strong>2. Exportaciones Regulares:</strong></p>
+            <ul>
+                <li>📅 <strong>Semanalmente:</strong> Si manejas muchos préstamos activos</li>
+                <li>📅 <strong>Mensualmente:</strong> Si tienes actividad moderada</li>
+                <li>📅 <strong>Antes de eventos críticos:</strong>
+                    <ul>
+                        <li>Cambio de teléfono</li>
+                        <li>Actualización de Android</li>
+                        <li>Reparación de dispositivo</li>
+                        <li>Formateo o reseteo</li>
+                        <li>Cancelación de Premium</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><strong>3. Verificación Periódica del Backup:</strong></p>
+            <ul>
+                <li>🔍 Revisa al menos <strong>una vez por semana</strong> que la sincronización esté activa</li>
+                <li>📊 Verifica que la fecha de "Última sincronización" sea reciente (máx. 3-5 días)</li>
+                <li>⚠️ Si ves advertencia de "Días sin sincronizar: 20+", sincroniza inmediatamente</li>
+            </ul>
+
+            <p><strong>4. Exportar Datos Manualmente:</strong></p>
+            <ol>
+                <li>Abre <strong>GrapePrest</strong></li>
+                <li>Ve a <strong>Menú → Reportes → Exportar Datos</strong></li>
+                <li>Selecciona:
+                    <ul>
+                        <li>✅ Exportar todo (clientes + préstamos + pagos)</li>
+                        <li>✅ Formato PDF (fácil de leer) o (para importar en otras apps)</li>
+                    </ul>
+                </li>
+                <li>Guarda el archivo en:
+                    <ul>
+                        <li>📧 Email a ti mismo</li>
+                        <li>☁️ Google Drive / Dropbox</li>
+                        <li>💾 USB (mediante cable OTG)</li>
+                        <li>📱 Otro dispositivo</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 5 ==================== -->
+    <div class="content-section">
+        <h2>5. Restaurar Backup en Nuevo Dispositivo</h2>
+
+        <div class="info">
+            <h3>📥 Recuperar tus Datos desde la Nube</h3>
+            <p><strong>Requisitos:</strong></p>
+            <ul>
+                <li>✅ Haber tenido suscripción Premium activa</li>
+                <li>✅ Backup sincronizado en los últimos 30 días</li>
+                <li>✅ Recordar el codigo de empresa al momento de registrarte</li>
+            </ul>
+
+            <p><strong>Pasos para restaurar:</strong></p>
+            <ol>
+                <li>Instala <strong>GrapePrest</strong> en el nuevo dispositivo</li>
+                <li>Abre la app por primera vez</li>
+                <li>Verás opción: <strong>"¿Tienes un backup en la nube?"</strong></li>
+                <li>Toca <strong>"Restaurar desde la nube"</strong></li>
+                <li>Ingresa el codigo generado almomento de crear la empresa</li>
+                <li>La app detectará automáticamente tu backup</li>
+                <li>Toca <strong>"Restaurar"</strong></li>
+                <li>Espera 1-3 minutos (según cantidad de datos)</li>
+                <li>¡Listo! Todos tus datos estarán de vuelta</li>
+            </ol>
+
+            <p><strong>Si no aparece tu backup:</strong></p>
+            <ul>
+                <li>❌ Pasaron más de 30 días sin sincronizar → Backup eliminado automáticamente</li>
+                <li>❌ Tu Premium venció hace más de 30 días → Backup eliminado</li>
+                <li>❌ Usaste diferente codigo → Backup no encontrado</li>
+                <li>❌ Nunca activaste backup en la nube → No hay nada que restaurar</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 6 ==================== -->
+    <div class="content-section">
+        <h2>6. Eliminar Manualmente tu Backup</h2>
+
+        <div class="steps">
+            <h3>🗑️ Cómo Eliminar tu Backup de la Nube</h3>
+            <p>Si quieres eliminar tu backup por privacidad o porque ya no lo necesitas:</p>
+            
+            <ol>
+                <li>Abre <strong>GrapePrest</strong></li>
+                <li>Ve a <strong>Menú → Configuración → Backup y Sincronización</strong></li>
+                <li>Desplázate hasta <strong>"Eliminar backup de la nube"</strong></li>
+                <li>Toca <strong>"Eliminar permanentemente"</strong></li>
+                <li>Confirma leyendo la advertencia:
+                    <ul class="checkbox-list">
+                        <li>☐ Entiendo que esto es irreversible</li>
+                        <li>☐ No podré recuperar datos en caso de cambio de dispositivo</li>
+                        <li>☐ Mis datos locales en este teléfono NO se afectan</li>
+                    </ul>
+                </li>
+                <li>Ingresa tu contraseña de la app para confirmar</li>
+                <li>Toca <strong>"CONFIRMAR ELIMINACIÓN"</strong></li>
+            </ol>
+
+            <p><strong>¿Qué sucede después?</strong></p>
+            <ul>
+                <li>✅ Tu backup se elimina inmediatamente de nuestros servidores</li>
+                <li>✅ Liberas espacio en tu cuota de almacenamiento Premium</li>
+                <li>❌ NO puedes recuperarlo (eliminación permanente)</li>
+                <li>✅ Tus datos locales en el teléfono permanecen intactos</li>
+                <li>✅ Puedes crear un nuevo backup cuando quieras (si sigues siendo Premium)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 7 - RESPONSABILIDAD ==================== -->
+    <div class="content-section">
+        <h2>7. Responsabilidad sobre tus Datos</h2>
+
+        <div class="legal">
+            <h3>⚖️ Modelo de Responsabilidad Completa</h3>
+            
+            <table class="stacked-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Responsabilidad del Usuario</th>
+                        <th>Responsabilidad de GRAPE CONSULTING</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Propiedad de datos</strong></td>
+                        <td data-label="Responsabilidad del Usuario">✅ 100% del usuario</td>
+                        <td data-label="Responsabilidad de GRAPE CONSULTING">❌ Ninguna (no tenemos acceso)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Almacenamiento local</strong></td>
+                        <td data-label="Responsabilidad del Usuario">✅ Proteger dispositivo (PIN, contraseña)</td>
+                        <td data-label="Responsabilidad de GRAPE CONSULTING">✅ Cifrado dentro de la app</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Backups regulares</strong></td>
+                        <td data-label="Responsabilidad del Usuario">✅ Crear exportaciones periódicas</td>
+                        <td data-label="Responsabilidad de GRAPE CONSULTING">⚠️ Facilitar herramienta opcional (Premium)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Backup en la nube</strong></td>
+                        <td data-label="Responsabilidad del Usuario">✅ Verificar sincronización regularmente</td>
+                        <td data-label="Responsabilidad de GRAPE CONSULTING">✅ Mantener infraestructura segura</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Eliminación de backup inactivo</strong></td>
+                        <td data-label="Responsabilidad del Usuario">✅ Sincronizar al menos cada 30 días</td>
+                        <td data-label="Responsabilidad de GRAPE CONSULTING">✅ Eliminar automáticamente para recuperar espacio</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Recuperación de datos perdidos</strong></td>
+                        <td data-label="Responsabilidad del Usuario">✅ Restaurar desde backup (si existe y está vigente)</td>
+                        <td data-label="Responsabilidad de GRAPE CONSULTING">❌ No podemos recuperar datos locales eliminados</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Exactitud de información</strong></td>
+                        <td data-label="Responsabilidad del Usuario">✅ Ingresar datos correctos</td>
+                        <td data-label="Responsabilidad de GRAPE CONSULTING">❌ No verificamos ni validamos</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspecto"><strong>Cumplimiento legal</strong></td>
+                        <td data-label="Responsabilidad del Usuario">✅ Leyes de protección de datos de clientes</td>
+                        <td data-label="Responsabilidad de GRAPE CONSULTING">✅ Privacidad y seguridad técnica</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="critical">
+            <h3>🚫 LIMITACIONES DE RESPONSABILIDAD</h3>
+            <p class="bold">GRAPE CONSULTING SRL NO ES RESPONSABLE POR:</p>
+            
+            <h4>❌ Pérdida de Datos Locales por:</h4>
+            <ul>
+                <li>Desinstalación de la app sin backup previo</li>
+                <li>Formateo, reseteo de fábrica o actualización del dispositivo</li>
+                <li>Robo, pérdida o daño físico del teléfono</li>
+                <li>Eliminación de datos desde Configuración de Android</li>
+                <li>Fallas del sistema operativo o del dispositivo</li>
+                <li>Malware, virus o software malicioso</li>
+                <li>Modificaciones del sistema (root/jailbreak)</li>
+            </ul>
+
+            <h4>❌ Pérdida de Backups en la Nube por:</h4>
+            <ul>
+                <li>Inactividad superior a 30 días (eliminación automática)</li>
+                <li>Cancelación de Premium sin exportar datos antes</li>
+                <li>No verificar estado de sincronización regularmente</li>
+                <li>Falta de conexión a internet para sincronizar</li>
+                <li>Eliminación manual por parte del usuario</li>
+            </ul>
+
+            <h4>❌ Contenido y Uso de Datos:</h4>
+            <ul>
+                <li>Exactitud, veracidad o legalidad de la información ingresada</li>
+                <li>Cumplimiento de leyes de protección de datos de terceros (tus clientes)</li>
+                <li>Uso indebido de información de clientes registrados</li>
+                <li>Disputas comerciales derivadas de préstamos registrados</li>
+                <li>Errores en cálculos por datos incorrectos ingresados</li>
+                <li>Consecuencias legales por uso de datos exportados</li>
+            </ul>
+
+            <h4>❌ Decisiones Comerciales:</h4>
+            <ul>
+                <li>Decisiones financieras basadas en reportes de la app</li>
+                <li>Pérdidas comerciales por depender exclusivamente de la app</li>
+                <li>Falta de backups adicionales en sistemas externos</li>
+            </ul>
+        </div>
+
+        <div class="important">
+            <h3>⚖️ Cláusula de Exoneración Total</h3>
+            <p class="bold red-text">
+                Al usar GrapePrest, aceptas expresamente que:
+            </p>
+            <ul>
+                <li>✅ Eres el <strong>ÚNICO propietario y responsable</strong> de tus datos</li>
+                <li>✅ Los datos se almacenan <strong>localmente en tu dispositivo</strong>, no en servidores de GRAPE CONSULTING SRL</li>
+                <li>✅ El backup en la nube es un <strong>servicio opcional y temporal</strong>, NO un almacenamiento permanente garantizado</li>
+                <li>✅ GRAPE CONSULTING SRL <strong>puede eliminar backups inactivos</strong> (30+ días) sin previo aviso para recuperar espacio</li>
+                <li>✅ Es tu responsabilidad <strong>verificar regularmente</strong> el estado de tu backup y crear exportaciones adicionales</li>
+                <li>✅ GrapePrest es una <strong>herramienta de gestión</strong>, no un sistema de records oficiales o contables</li>
+                <li>✅ <strong>NO existe garantía de disponibilidad del 100%</strong> del servicio de backup (pueden ocurrir fallas técnicas)</li>
+                <li>✅ <strong>Liberas a GRAPE CONSULTING SRL</strong> de toda responsabilidad por pérdida de datos, independientemente de la causa</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 8 - CUMPLIMIENTO LEGAL ==================== -->
+    <div class="content-section">
+        <h2>8. Protección de Datos Personales de Terceros</h2>
+
+        <div class="legal">
+            <h3>👥 Tu Responsabilidad Legal con tus Clientes</h3>
+            <p>
+                Al usar GrapePrest para almacenar información de tus clientes (nombres, teléfonos, 
+                montos de deuda, direcciones), <strong>TÚ actúas como "responsable del tratamiento"</strong> 
+                según leyes de protección de datos.
+            </p>
+
+            <p><strong>Según la Ley 172-13 de Protección de Datos Personales (República Dominicana):</strong></p>
+            <ul>
+                <li>
+                    <strong>Artículo 8 - Consentimiento:</strong> Debes obtener autorización de tus clientes 
+                    para almacenar y procesar sus datos personales.
+                </li>
+                <li>
+                    <strong>Artículo 13 - Seguridad:</strong> Eres responsable de proteger los datos 
+                    (usar PIN en tu teléfono, no compartir dispositivo).
+                </li>
+                <li>
+                    <strong>Artículo 26 - Derecho al Olvido:</strong> Tus clientes pueden solicitar 
+                    que elimines su información.
+                </li>
+                <li>
+                    <strong>Artículo 30 - Notificación de Brechas:</strong> Si pierdes tu teléfono con 
+                    datos de clientes, debes notificarles según la ley.
+                </li>
+            </ul>
+
+            <p><strong>Para Usuarios Internacionales:</strong></p>
+            <ul>
+                <li><strong>GDPR (Europa):</strong> Si tienes clientes europeos, debes cumplir con GDPR</li>
+                <li><strong>CCPA (California):</strong> Aplica si operas con residentes de California</li>
+                <li><strong>LGPD (Brasil):</strong> Ley General de Protección de Datos de Brasil</li>
+            </ul>
+
+            <p class="bold red-text">
+                ⚠️ GRAPE CONSULTING SRL NO es responsable del cumplimiento de estas leyes. 
+                GrapePrest es solo una herramienta; TÚ decides qué datos ingresas y cómo los proteges.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 9 - DATOS CONSERVADOS ==================== -->
+    <div class="content-section">
+        <h2>9. Datos que SÍ Conservamos (Solo Transaccionales)</h2>
+
+        <p>
+            Aunque <strong>NO almacenamos tus datos de clientes o préstamos</strong>, 
+            por obligaciones legales debemos conservar información relacionada con tu suscripción Premium:
+        </p>
+
+        <table class="stacked-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Dato</th>
+                    <th>Período</th>
+                    <th>Razón Legal</th>
+                    <th>¿Qué incluye?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Historial de compras</strong></td>
+                    <td data-label="Período">7 años</td>
+                    <td data-label="Razón Legal">
+                        Ley 11-92 Código Tributario (RD)<br>
+                        Política de Google Play
+                    </td>
+                    <td data-label="¿Qué incluye?">
+                        Order IDs, fechas, montos.<br>
+                        NO incluye tu información comercial.
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Comprobantes fiscales</strong></td>
+                    <td data-label="Período">10 años</td>
+                    <td data-label="Razón Legal">DGII - República Dominicana</td>
+                    <td data-label="¿Qué incluye?">
+                        Facturas de suscripción Premium.<br>
+                        Requerido por ley fiscal.
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Reembolsos</strong></td>
+                    <td data-label="Período">5 años</td>
+                    <td data-label="Razón Legal">Ley 358-05 Protección al Consumidor</td>
+                    <td data-label="¿Qué incluye?">
+                        Solicitudes, respuestas.<br>
+                        Evidencia en disputas.
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Logs de sincronización</strong></td>
+                    <td data-label="Período">90 días</td>
+                    <td data-label="Razón Legal">
+                        Seguridad informática<br>
+                        Prevención de fraude
+                    </td>
+                    <td data-label="¿Qué incluye?">
+                        Fechas/horas de sync, IPs.<br>
+                        NO contenido de datos.
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato"><strong>Emails de soporte</strong></td>
+                    <td data-label="Período">3 años</td>
+                    <td data-label="Razón Legal">Evidencia en reclamaciones</td>
+                    <td data-label="¿Qué incluye?">
+                        Solo si contactaste a soporte.<br>
+                        Tickets y comunicaciones.
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Dato" class="bold red-text"><strong>Backups en la nube</strong></td>
+                    <td data-label="Período" class="bold red-text">30 días máx.</td>
+                    <td data-label="Razón Legal">NO hay obligación legal</td>
+                    <td data-label="¿Qué incluye?" class="bold red-text">
+                        Se ELIMINA automáticamente.<br>
+                        NO se conserva después.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info">
+            <p><strong>Aclaraciones:</strong></p>
+            <ul>
+                <li>📋 Estos datos se usan SOLO para cumplimiento legal y auditoría</li>
+                <li>📋 NO vendemos, compartimos ni procesamos para otros fines</li>
+                <li>📋 Se almacenan de forma segura y cifrada</li>
+                <li>📋 Son eliminados automáticamente al cumplir período legal</li>
+                <li>📋 <strong>TUS DATOS COMERCIALES (clientes, préstamos) NUNCA llegan a nuestros servidores</strong> 
+                    - están solo en tu dispositivo y en backups cifrados temporales</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== SECCIÓN 10 - FAQ ==================== -->
+    <div class="contact-box content-section">
+        <h2>10. Preguntas Frecuentes</h2>
+        
+        <p><strong>1. ¿Cómo elimino mi "cuenta" de GrapePrest?</strong></p>
+        <p>
+            GrapePrest NO usa cuentas de usuario. Simplemente desinstala la app. 
+            Si tienes Premium y quieres eliminar tu backup de la nube, ve a 
+            Configuración → Backup → Eliminar backup.
+        </p>
+
+        <p><strong>2. ¿Ustedes tienen acceso a mis datos de clientes?</strong></p>
+        <p>
+            ❌ NO. Tus datos se almacenan localmente en tu teléfono. Los backups en la nube 
+            están cifrados con AES-256 y solo tú puedes descifrarlos con tu sesión de Google Play.
+        </p>
+
+        <p><strong>3. ¿Qué pasa si desinstalo la app sin hacer backup?</strong></p>
+        <p>
+            ⚠️ Pierdes TODOS tus datos permanentemente. Android elimina la base de datos local 
+            al desinstalar. NO podemos recuperarla.
+        </p>
+
+        <p><strong>4. ¿Mi backup en la nube es permanente?</strong></p>
+        <p>
+            ❌ NO. Es temporal. Se elimina automáticamente si:
+        </p>
+        <ul>
+            <li>• No sincronizas por más de 30 días</li>
+            <li>• Cancelas Premium y pasan 30 días</li>
+            <li>• Lo eliminas manualmente</li>
+        </ul>
+
+        <p><strong>5. ¿Me avisarán antes de eliminar mi backup?</strong></p>
+        <p>
+            ❌ NO. No tenemos tu email ni forma de contactarte (la app no requiere registro). 
+            Es tu responsabilidad verificar el estado en Configuración → Backup.
+        </p>
+
+        <p><strong>6. ¿Puedo recuperar mi backup después de 30 días de inactividad?</strong></p>
+        <p>
+            ❌ NO. Después de 30 días sin sincronizar, el backup se elimina automáticamente 
+            y es IRRECUPERABLE.
+        </p>
+
+        <p><strong>7. ¿Qué pasa con mis datos al cancelar Premium?</strong></p>
+        <p>
+            • Datos locales en tu teléfono: ✅ Se mantienen (sigues usando la app gratis)<br>
+            • Backup en la nube: ⚠️ Se elimina después de 30 días<br>
+            • Recomendación: Exporta antes de cancelar
+        </p>
+
+        <p><strong>8. Cambié de teléfono, ¿cómo recupero mis datos?</strong></p>
+        <p>
+            <strong>Si tenías backup activo (Premium):</strong><br>
+            • Instala GrapePrest en el nuevo teléfono<br>
+            • Toca "Restaurar desde la nube"<br>
+            • Igresa codigo generado al momento de crear la cuenta (empresa).<br>
+            <br>
+            <strong>Si NO tenías backup:</strong><br>
+            • ❌ No hay forma de recuperar datos. Debes empezar de cero.
+        </p>
+
+        <p><strong>9. ¿Puedo confiar solo en el backup en la nube?</strong></p>
+        <p>
+            ⚠️ NO recomendado. Siempre debes tener múltiples backups:<br>
+            • Backup en la nube de GrapePrest (automático)<br>
+            • Exportaciones manuales en tu Google Drive/Dropbox<br>
+            • Copias en otro dispositivo o USB
+        </p>
+
+        <p><strong>10. ¿Qué pasa si violo los Términos de Uso?</strong></p>
+        <p>
+            • Bloqueo de acceso al backup en la nube<br>
+            • Eliminación inmediata del backup existente<br>
+            • Posible bloqueo permanente de futuros backups<br>
+            • Datos locales en tu teléfono NO se afectan (a menos que desinstales)
+        </p>
+
+        <hr style="margin: 20px 0;">
+
+        <h3>📧 Contacto y Soporte</h3>
+        <p><strong>GRAPE CONSULTING SRL</strong></p>
+        <p><strong>RNC:</strong> 133-24041-6</p>
+        <p><strong>Ubicación:</strong> Santo Domingo, República Dominicana</p>
+        
+        <div class="email-distinction">
+            <h4 style="margin-top: 0;">📧 Canales de Contacto Oficiales</h4>
+            <p style="margin-bottom: 15px;">
+                Utiliza el correo apropiado según tu necesidad:
+            </p>
+            
+            <div class="email-box business">
+                <h4 style="color: #1976D2; margin-top: 0; margin-bottom: 5px;">
+                    💼 Asuntos Comerciales y Legales
+                </h4>
+                <p style="font-size: 1.05em; margin: 5px 0;">
+                    <a href="mailto:servicio.grapeconsulting@gmail.com" class="official-email">
+                        servicio.grapeconsulting@gmail.com
+                    </a>
+                </p>
+                <ul style="margin: 10px 0; font-size: 0.9em;">
+                    <li>✅ Solicitudes de información sobre backups</li>
+                    <li>✅ Consultas sobre privacidad de datos</li>
+                    <li>✅ Asuntos de facturación</li>
+                    <li>✅ Comunicaciones formales/legales</li>
+                </ul>
+            </div>
+            
+            <div class="email-box support">
+                <h4 style="color: #478935; margin-top: 0; margin-bottom: 5px;">
+                    🛠️ Soporte Técnico
+                </h4>
+                <p style="font-size: 1.05em; margin: 5px 0;">
+                    <a href="mailto:grapesoporte@gmail.com" class="official-email" style="background: #e8f5e9;">
+                        grapesoporte@gmail.com
+                    </a>
+                </p>
+                <ul style="margin: 10px 0; font-size: 0.9em;">
+                    <li>✅ Problemas con sincronización de backup</li>
+                    <li>✅ Errores al restaurar datos</li>
+                    <li>✅ Problemas técnicos con la app</li>
+                    <li>✅ Dudas sobre uso de funcionalidades</li>
+                    <li>✅ Ayuda con suscripción Premium</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4 style="margin-top: 20px;">⏰ Tiempos de Respuesta</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de Consulta</th>
+                    <th>Canal</th>
+                    <th>Tiempo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Tipo de Consulta">Consultas generales</td>
+                    <td data-label="Canal">servicio.grapeconsulting@gmail.com</td>
+                    <td data-label="Tiempo">24-48 horas hábiles</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Consulta">Información de backup</td>
+                    <td data-label="Canal">servicio.grapeconsulting@gmail.com</td>
+                    <td data-label="Tiempo">3-5 días hábiles</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Consulta">Problemas técnicos</td>
+                    <td data-label="Canal">grapesoporte@gmail.com</td>
+                    <td data-label="Tiempo">24-48 horas hábiles</td>
+                </tr>
+                <tr>
+                    <td data-label="Tipo de Consulta">Errores de sincronización</td>
+                    <td data-label="Canal">grapesoporte@gmail.com</td>
+                    <td data-label="Tiempo">24-48 horas hábiles</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="font-size: 0.9em; color: #666; margin-top: 15px;">
+            <strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM 
+            (Hora de República Dominicana, GMT-4)
+        </p>
+    </div>
+
+    <!-- ==================== PIE DE PÁGINA ==================== -->
+    <hr>
+    
+    <div style="background: #ffebee; border: 2px solid #F80145; padding: 15px; border-radius: 5px; margin-top: 20px;">
+        <h3 style="color: #d32f2f; margin-top: 0;">⚠️ Declaración Final de Responsabilidad</h3>
+        <p style="font-size: 0.9em; color: #333;">
+            Al usar GrapePrest, <strong>declaras expresamente que:</strong>
+        </p>
+        <ul style="font-size: 0.85em; color: #333;">
+            <li>✅ Comprendes que GrapePrest funciona de manera <strong>LOCAL en tu dispositivo</strong></li>
+            <li>✅ Eres el <strong>único propietario y responsable</strong> de tus datos</li>
+            <li>✅ GRAPE CONSULTING SRL <strong>NO almacena tus datos de clientes o préstamos</strong> 
+                en sus servidores (solo backups cifrados temporales si tienes Premium)</li>
+            <li>✅ El backup en la nube es <strong>opcional, temporal y se elimina automáticamente</strong> 
+                después de 30 días de inactividad SIN PREVIO AVISO</li>
+            <li>✅ Es tu responsabilidad <strong>verificar el estado de tu backup regularmente</strong> 
+                y crear exportaciones adicionales</li>
+            <li>✅ Si pierdes tu teléfono o desinstalas la app sin backup, 
+                <strong>pierdes todos los datos PERMANENTEMENTE</strong></li>
+            <li>✅ Has leído y comprendido esta política completamente</li>
+            <li>✅ <strong>Liberas a GRAPE CONSULTING SRL</strong> de toda responsabilidad 
+                por pérdida de datos, independientemente de la causa</li>
+        </ul>
+        <p style="font-size: 0.85em; color: #d32f2f; font-weight: bold; margin-top: 15px;">
+            Esta declaración forma parte del acuerdo vinculante al usar GrapePrest.
+        </p>
+    </div>
+
+    <p style="text-align: center; color: #888; font-size: 11px; margin-top: 25px; line-height: 1.5;">
+        © 2025 GRAPE CONSULTING SRL - Todos los derechos reservados<br>
+        RNC: 133-24041-6 | Santo Domingo, República Dominicana<br><br>
+        <strong>Política de Gestión de Datos y Backups - Versión 2.0</strong><br>
+        Última actualización: 14 de enero de 2025<br><br>
+        Esta política forma parte de los Términos y Condiciones de GrapePrest<br>
+        y debe leerse en conjunto con nuestra Política de Privacidad
+    </p>
+</body>
+</html>
